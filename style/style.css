@@ -1,6 +1,7 @@
 body{
     scrollbar-color: red;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    overflow-x:hidden;
 }
 
 
@@ -198,8 +199,8 @@ div{
     font-size: 2.5vw;
     background: rgba(95, 20, 93, 0.445);
     box-shadow: 0 4px 30px rgba(189, 19, 175, 0.514);
-    backdrop-filter: blur(2.5px);
-    -webkit-backdrop-filter: blur(2.5px);
+    backdrop-filter: blur(9.5px);
+    -webkit-backdrop-filter: blur(9.5px);
     border: 1px solid rgba(255, 255, 255, 1);
 }
 
@@ -221,7 +222,10 @@ div{
     border-style: hidden;
     position: absolute;
     right: 5vw;
+    color: rgb(49, 32, 0);
+    
 }
+
 
 .bg{
     z-index: -1000000;
@@ -229,9 +233,8 @@ div{
     position: fixed;
     top: 0vw;
     left: 0vw;
-    height: 200vmax; 
-    width: auto;
-    translate: 0vw -100vmax;
+    min-width: 100vw;
+    min-height: 100vh;
 }
 
 .take{
@@ -272,7 +275,7 @@ div{
     border-radius: 1.7vw;
     background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
         radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
-    color: white;
+    color: rgb(49, 32, 0);
     transform: translateY(-1.333vw);
 }
 
