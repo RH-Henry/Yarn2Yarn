@@ -194,9 +194,8 @@ div{
     height: 26vw;
     color: black;
     text-align: center;
-    font-size: 2vw;
     border-radius: 4vmin;
-    font-size: 2.5vmax;
+    font-size: 2.5vw;
     background: rgba(95, 20, 93, 0.445);
     box-shadow: 0 4px 30px rgba(189, 19, 175, 0.514);
     backdrop-filter: blur(2.5px);
