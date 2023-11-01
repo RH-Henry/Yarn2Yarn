@@ -7,13 +7,89 @@
     <title>Yarn2Yarn</title>
 </head>
 <body>
+    <img class="bg" src="../pictures/wool-3491905_1920.jpg">
     <div id="bande">
-        <button class="bandeBtn" id="home" >home</button>
-        <button class="bandeBtn" id="sign-in" >sign in</button>
-        <button class="bandeBtn" id="free-try" >Try for free</button>
-        <button class="bandeBtn" id="register" >register</button>
+        <div class="container">
+            <li class="bandeBtn" id="home" > <a href="" class="bandeItms">home</a> </li>
+            <li class="bandeBtn" id="free-try" ><a href="./free-try/" class="bandeItms">free demo</a></li>
+            <li class="bandeBtn" id="sign-in" ><a href="./sign-in/" class="bandeItms">sign in</a></li>
+            <li class="bandeBtn" id="register" ><a href="./sign-up/" class="bandeItms">subscribe</a></li>
+        </div>
     </div>
 
+    <h1 id="start">What is Yarn2Yarn ?</h1>
+    <div id="bloc-2">
+        <div class="slide-container">
+            <div class="custom-slider fade">
+                <div class="slide-index">1 / 3</div>
+                <img class="slide-img" src="../pictures/IMG-20231101-WA0012.jpg">
+                <div class="slide-text">"Monster High"</div>
+            </div>
+            <div class="custom-slider fade">
+                <div class="slide-index">2 / 3</div>
+                <img class="slide-img" src="https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide2.jpg">
+                <div class="slide-text">Christmas present</div>
+            </div>
+            <div class="custom-slider fade">
+                <div class="slide-index">3 / 3</div>
+                <img class="slide-img" src="https://www.codeur.com/tuto/wp-content/uploads/2021/12/slide3.jpg">
+                <div class="slide-text">Classic</div>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+        </div>
+        <br>
+        <div class="slide-dot">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </div>
+    <div id="line-1">
+        <div id="bloc-1">
+            <div class="text">It is a polyvalent knitting tool which helps you to make
+                some knitting models with all wool sizes.
+            </div>
+            <div class="text">It is based on the DeepGrid.</div>
+            <div class="text">The DeepGrid is a grid where you can put key points
+                that defines your knit. You just need to 
+                know their coordinates in cm or inches.
+                you can draw the shape of the knitting 
+                with these points,
+                and then you will be able to change the wool.A MODIFIER AMODIFIER A MODIFIER A MODIFIER A MODIFIERA MODIFIER AMODIFIER A MODIFIER A MODIFIER A MODIFIERA MODIFIER AMODIFIER A MODIFIER A MODIFIER A MODIFIERA MODIFIER AMODIFIER A MODIFIER A MODIFIER A MODIFIERA MODIFIER AMODIFIER A MODIFIER A MODIFIER A MODIFIERA MODIFIER AMODIFIER A MODIFIER A MODIFIER A MODIFIERA MODIFIER AMODIFIER A MODIFIER A MODIFIER A MODIFIERA MODIFIER AMODIFIER A MODIFIER A MODIFIER A MODIFIER
+            </div>
+            <p class="text">Don't forget to have fun while knitting!</p>
+        </div>
+        
+    </div>
+
+    <h1>Who made it</h1>
+    <div class="text">I am a 15 Yo guy who loves knitting with
+         my mother and we need more money for more 
+         wool bwahahahaha A MODIFIER AMODIFIER A MO
+         DIFIER A MODIFIER A MODIFIERA MODIFIER AMO
+         DIFIER A MODIFIER A MODIFIER A MODIFIERA M
+         ODIFIER AMODIFIER A MODIFIER A MODIFIER A 
+         MODIFIERA MODIFIER AMODIFIER A MODIFIER A 
+         MODIFIER A MODIFIERA MODIFIER AMODIFIER A 
+         MODIFIER A MODIFIER A MODIFIERA MODIFIER A
+         MODIFIER A MODIFIER A MODIFIER A MODIFIERA
+          MODIFIER AMODIFIER A MODIFIER A MODIFIER 
+          A MODIFIERA MODIFIER AMODIFIER A MODIFIER
+           A MODIFIER A MODIFIERA MODIFIER AMODIFIE
+           R A MODIFIER A MODIFIER A MODIFIER</div>
+
+    <div class="empty"></div>
+
+    <div id="line-2">
+        <div id="monthly" class="plan">monthly <p>$4.99/month</p><p>$59.88/year</p><li class="take"><a class="takea" href="./take-now/">start now</a></li></div>
+        <div id="yearly" class="plan">yearly <p>$2.08/month</p><p>$24.96/year</p><li class="take"><a class="takea" href="./take-now/">start now</a></li></div>
+        <div id="perpetual" class="plan">perpetual <p>$99.99</p><p>permanent use</p><a class="take-perpetual" href="./take-now/">start now</a></div>
+    </div>
+    <div class="empty-2"></div>
+    <div class="text">buy access to Yarn 2 Yarn to
+        support the platform and help fund my hours
+        that I spent on this project</div>
 </body>
 <script src="/scripts/script.js"></script>
 </html>
