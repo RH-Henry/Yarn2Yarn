@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Yarn 2 Yarn — Knit pattern converter & generator</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* small visual touches beyond Tailwind */
+    .glass { background: rgba(255,255,255,0.75); backdrop-filter: blur(6px); }
+    .screenshot { border-radius: 10px; box-shadow: 0 10px 30px rgba(2,6,23,0.25); }
+
+    /* subtle zoom on hover */
+    .zoomable { transition: transform 0.18s ease; cursor: pointer; will-change: transform; }
+    .zoomable:hover { transform: scale(1.04); }
+
+    /* lightbox styles */
+    #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); align-items: center; justify-content: center; z-index: 60; }
+    #lightbox img { max-width: 92%; max-height: 92%; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 text-gray-900 font-sans leading-relaxed">
+  <header class="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+    <h1 class="text-2xl font-semibold">Yarn 2 Yarn</h1>
+    <nav class="space-x-4 text-sm">
+      <a href="#features" class="hover:underline">Features</a>
+      <a href="#screenshots" class="hover:underline">Screenshots</a>
+      <a href="#buy" class="text-white bg-indigo-600 px-4 py-2 rounded shadow hover:bg-indigo-700">Buy</a>
+    </nav>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6">
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center py-12">
+      <div>
+        <p class="text-sm uppercase text-indigo-600 font-medium">Convert • Adapt • Knit</p>
+        <h2 class="text-3xl md:text-4xl font-bold mt-3">Make any pattern fit any yarn — instantly</h2>
+        <p class="mt-4 text-gray-700">Yarn 2 Yarn helps to convert written or graphical knitting patterns to match the yarn and gauge you have on hand. Generate clear row-by-row instructions, stitch counts, and a printable grid — ready to knit.</p>
+
+        <ul class="mt-6 space-y-3 text-gray-800">
+          <li class="flex items-start"><span class="mr-3 text-indigo-600">●</span><strong>Adapt any pattern</strong> — swap yarns without math.</li>
+          <li class="flex items-start"><span class="mr-3 text-indigo-600">●</span><strong>Share & collaborate</strong> — save, export and send a friend-ready version.</li>
+          <li class="flex items-start"><span class="mr-3 text-indigo-600">●</span><strong>Practical outputs</strong> — printable grid, row instructions, and gauge settings.</li>
+        </ul>
+
+        <div class="mt-6 flex items-center gap-4">
+          <a id="buy" href="https://www.ebay.com/sch/i.html?_nkw=knitting+pattern+generator" target="_blank" rel="noopener" class="inline-flex items-center px-5 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-rose-700">
+            Buy now, two downloads — $30
+          </a>
+          <a href="Yarn2Yarn-Installer.exe" class="inline-flex items-center px-5 py-3 bg-white border border-gray-300 text-gray-800 rounded-lg shadow hover:bg-gray-50">
+          Download installer (.exe)
+          </a>
+          <a href="#screenshots" class="text-sm text-gray-600 hover:underline">See screenshots</a>
+        </div>
+
+        <p class="mt-4 text-xs text-gray-500">One-time purchase. Includes lifetime updates and community patterns. Give one to someone you love so you can share patterns.</p>
+
+        <div class="mt-6 p-4 glass rounded">
+          <p class="text-sm font-medium">Why it matters</p>
+          <p class="mt-2 text-sm text-gray-700">No more guessing which yarn to buy or wrestling with math. Keep the design you love — use the yarn you already own. Save money. Perfect for makers who value thrift, creativity, and sharing.</p>
+        </div>
+      </div>
+
+      <div class="p-6 bg-white rounded-lg shadow">
+        <img src="base.png" alt="Yarn 2 Yarn screenshot modern" class="w-full screenshot zoomable" data-src="base.png">
+        <figcaption class="mt-3 text-xs text-gray-500">Clean editor: draw or import a pattern, set gauge, export instructions.</figcaption>
+      </div>
+    </section>
+
+    <section id="features" class="py-8">
+      <h3 class="text-xl font-semibold">Key features</h3>
+      <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div class="p-4 bg-white rounded shadow">
+          <h4 class="font-medium">Automatic conversion</h4>
+          <p class="mt-2 text-sm text-gray-700">Enter original gauge and target yarn — get new stitch & row counts automatically.</p>
+        </div>
+        <div class="p-4 bg-white rounded shadow">
+          <h4 class="font-medium">Exportable instructions</h4>
+          <p class="mt-2 text-sm text-gray-700">Row-by-row text, printable grid or graphical instructions.</p>
+        </div>
+        <div class="p-4 bg-white rounded shadow">
+          <h4 class="font-medium">Community sharing</h4>
+          <p class="mt-2 text-sm text-gray-700">Save patterns to share with friends — convert instantly for their yarn.</p>
+        </div>
+        <div class="p-4 bg-white rounded shadow">
+          <h4 class="font-medium">Undo & edit</h4>
+          <p class="mt-2 text-sm text-gray-700">Visual editor with adjustable control points and grid snap.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="screenshots" class="py-8">
+      <h3 class="text-xl font-semibold">Screenshots</h3>
+      <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <figure class="bg-white p-4 rounded shadow">
+          <img src="coeur.png" alt="Yarn 2 Yarn modern interface" class="w-full rounded screenshot zoomable" data-src="coeur.png">
+          <figcaption class="mt-2 text-xs text-gray-500">Modern editor — clean controls, export options.</figcaption>
+        </figure>
+
+        <figure class="bg-white p-4 rounded shadow">
+          <img src="3a223e2f-e6a6-42e1-8e61-f96dce5ef1c5.png" alt="Yarn 2 Yarn prototype" class="w-full rounded screenshot zoomable" data-src="3a223e2f-e6a6-42e1-8e61-f96dce5ef1c5.png">
+          <figcaption class="mt-2 text-xs text-gray-500">Early prototype — the first, buggy version (real progress!).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="py-8">
+      <h3 class="text-lg font-semibold">A quick story</h3>
+      <p class="mt-2 text-gray-700">In high school, a student wanted to help his mother follow patterns with whatever wool they had at home. Years later, during engineering school, he built Yarn 2 Yarn — a practical tool that removes fastidious maths so families and communities can keep making, together.</p>
+    </section>
+
+    <section class="py-8">
+      <h3 class="text-lg font-semibold">Who is this for?</h3>
+      <p class="mt-2 text-gray-700">Hobby knitters, small designers, yarn shops and community knitting groups who want to reuse beloved patterns with new yarns. Tech-savvy makers who appreciate clean exports and sharing.</p>
+    </section>
+    
+    <section id="functionalities" class="py-12">
+      <h3 class="text-xl font-semibold mb-4">Functionalities and interface</h3>
+      <div class="bg-white p-4 rounded shadow">
+        <img src="interface.png" alt="Yarn 2 Yarn full view" class="w-full screenshot zoomable" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').classList.remove('hidden');" />
+        <figcaption class="mt-2 text-xs text-gray-500">Intuitive interface</figcaption>
+      </div>
+      
+      <div class="bg-white p-4 rounded shadow">
+        <img src="motif.png" alt="Yarn 2 Yarn full view" class="w-full screenshot zoomable" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').classList.remove('hidden');" />
+        <figcaption class="mt-2 text-xs text-gray-500">Create the motif you love...</figcaption>
+      </div>
+      <div class="bg-white p-4 rounded shadow">
+        <img src="apply.png" alt="Yarn 2 Yarn full view" class="w-full screenshot zoomable" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').classList.remove('hidden');" />
+        <figcaption class="mt-2 text-xs text-gray-500">Apply it !</figcaption>
+      </div>
+      <div class="bg-white p-4 rounded shadow">
+        <img src="Instructions.png" alt="Yarn 2 Yarn full view" class="w-full screenshot zoomable" onclick="document.getElementById('lightbox-img').src=this.src; document.getElementById('lightbox').classList.remove('hidden');" />
+        <figcaption class="mt-2 text-xs text-gray-500">Get clear instructions (don't be afraid of them)</figcaption>
+      </div>
+    </section>
+
+    <footer class="py-12 text-center text-sm text-gray-600">
+      <p>© Yarn 2 Yarn — Convert patterns & keep what you love. <a href="https://www.ebay.com/sch/i.html?_nkw=knitting+pattern+generator" target="_blank" rel="noopener" class="underline">Buy on eBay</a></p>
+    </footer>
+    
+</main>
+
+  <!-- Lightbox overlay -->
+  <div id="lightbox" class="hidden fixed inset-0 items-center justify-center">
+    <img id="lightbox-img" src="" alt="expanded image">
+  </div>
+
+  <script>
+    // Initialize lightbox behavior for the exact images in this document without changing structure
+    (function(){
+      function openLightbox(src){
+        var lb = document.getElementById('lightbox');
+        var lbImg = document.getElementById('lightbox-img');
+        lbImg.src = src;
+        lb.classList.remove('hidden');
+        lb.style.display = 'flex';
+      }
+      function closeLightbox(){
+        var lb = document.getElementById('lightbox');
+        lb.classList.add('hidden');
+        lb.style.display = 'none';
+        document.getElementById('lightbox-img').src = '';
+      }
+
+      // Attach to images with class zoomable; if not present, add class and handler to the three images we expect
+      var imgs = document.querySelectorAll('img');
+      imgs.forEach(function(img){
+        // only act on the three image filenames used in the page
+        var src = img.getAttribute('src') || img.dataset.src || '';
+        if(/^(base\.png|coeur\.png|3a223e2f-e6a6-42e1-8e61-f96dce5ef1c5\.png)$/i.test(src)){
+          img.classList.add('zoomable');
+          img.addEventListener('click', function(e){ e.preventDefault(); openLightbox(src); });
+        }
+      });
+
+      // Close on click outside the image or on Esc
+      var lightbox = document.getElementById('lightbox');
+      lightbox.addEventListener('click', function(e){
+        if(e.target === lightbox) closeLightbox();
+      });
+      document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLightbox(); });
+    })();
+  </script>
+</body>
+</html>
