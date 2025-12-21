@@ -111,7 +111,7 @@
         
         <figure class="bg-white p-4 rounded shadow">
           <img src="swap.png" alt="Change the wool" class="w-full rounded screenshot zoomable" data-src="3a223e2f-e6a6-42e1-8e61-f96dce5ef1c5.png">
-          <figcaption class="mt-2 text-xs text-gray-500">Take the wool you love</figcaption>
+          <figcaption class="mt-2 text-xs text-gray-500">Take the wool you love.</figcaption>
         </figure>
 
         <figure class="bg-white p-4 rounded shadow">
@@ -178,7 +178,7 @@
       imgs.forEach(function(img){
         // only act on the three image filenames used in the page
         var src = img.getAttribute('src') || img.dataset.src || '';
-        if(/^(Instructions\.png|motif\.png|swap\.png|base\.png|coeur\.png|3a223e2f-e6a6-42e1-8e61-f96dce5ef1c5\.png)$/i.test(src)){
+        if(/^(interface\.png|Instructions\.png|motif\.png|swap\.png|base\.png|coeur\.png|3a223e2f-e6a6-42e1-8e61-f96dce5ef1c5\.png)$/i.test(src)){
           img.classList.add('zoomable');
           img.addEventListener('click', function(e){ e.preventDefault(); openLightbox(src); });
         }
