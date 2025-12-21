@@ -120,7 +120,7 @@
         </figure>
 
         <figure class="bg-white p-4 rounded shadow">
-          <img src="instructions.png" alt="Create motifs" class="w-full rounded screenshot zoomable" data-src="3a223e2f-e6a6-42e1-8e61-f96dce5ef1c5.png">
+          <img src="Instructions.png" alt="Create motifs" class="w-full rounded screenshot zoomable" data-src="3a223e2f-e6a6-42e1-8e61-f96dce5ef1c5.png">
           <figcaption class="mt-2 text-xs text-gray-500">Generate clear visual and textual instructions.</figcaption>
         </figure>
         
@@ -178,7 +178,7 @@
       imgs.forEach(function(img){
         // only act on the three image filenames used in the page
         var src = img.getAttribute('src') || img.dataset.src || '';
-        if(True || /^(base\.png|coeur\.png|3a223e2f-e6a6-42e1-8e61-f96dce5ef1c5\.png)$/i.test(src)){
+        if(/^(Instructions\.png|motif\.png|swap\.png|base\.png|coeur\.png|3a223e2f-e6a6-42e1-8e61-f96dce5ef1c5\.png)$/i.test(src)){
           img.classList.add('zoomable');
           img.addEventListener('click', function(e){ e.preventDefault(); openLightbox(src); });
         }
