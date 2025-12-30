@@ -67,7 +67,20 @@
       margin: 2rem auto; /* centré avec espace autour */
       max-width: 1200px; /* largeur max */
     }
-
+    @media (max-width: 768px) {
+      .main-container {
+        margin-top: 0;
+        margin-bottom: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 1.5rem;
+        border-bottom-right-radius: 1.5rem;
+      }
+    
+      body {
+        padding-top: 0;
+      }
+    }
 
   </style>
 </head>
