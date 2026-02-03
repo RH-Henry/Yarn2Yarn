@@ -95,6 +95,98 @@
         background: linear-gradient(to bottom right, rgba(255, 247, 207, 0.882), rgba(138, 235, 255, 0.134));
       }
     }
+    /* =========================
+       DARK MODE AUTOMATIQUE
+       ========================= */
+    @media (prefers-color-scheme: dark) {
+    
+      /* ---- Base ---- */
+      body {
+        background-image: none;
+        background: linear-gradient(to bottom right, #0f172a, #020617);
+        color: #f8fafc;
+      }
+    
+      p,
+      .text-sm,
+      .mt-2,
+      .mt-4 {
+        color: #e5e7eb !important;
+      }
+    
+      /* ---- Containers ---- */
+      .main-container {
+        background: rgba(15, 23, 42, 0.85);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      }
+    
+      .glass {
+        background: rgba(30, 41, 59, 0.7);
+        backdrop-filter: blur(14px);
+      }
+    
+      /* ---- Headings ---- */
+      h1, h2, h3, h4 {
+        color: #f9a8d4 !important;
+      }
+    
+      /* ---- Cards ---- */
+      .bg-pink-50 {
+        background: rgba(30, 41, 59, 0.9) !important;
+        border-color: rgba(148, 163, 184, 0.25) !important;
+      }
+    
+      /* ---- Buttons ---- */
+      .btn-kawaii {
+        background-color: #ec4899 !important;
+        color: white !important;
+      }
+    
+      .btn-kawaii:hover {
+        background-color: #f472b6 !important;
+      }
+    
+      a.bg-white {
+        background: rgba(30, 41, 59, 0.9) !important;
+        color: #f9a8d4 !important;
+        border-color: #f9a8d4 !important;
+      }
+    
+      /* ---- Screenshots ---- */
+      img,
+      iframe,
+      video {
+        background: #020617;
+        border-color: rgba(148, 163, 184, 0.25) !important;
+      }
+    
+      /* ---- Footer & legal ---- */
+      footer,
+      #legal-contact {
+        color: #cbd5f5;
+      }
+    
+      /* =========================
+         SOCIAL LINKS (IMPORTANT)
+         ========================= */
+      .social-links,
+      .social-links p {
+        color: #e5e7eb !important;
+      }
+    
+      .social-links a {
+        color: #e5e7eb !important;
+      }
+    
+      .social-links a:hover {
+        color: #f472b6 !important;
+      }
+    
+      /* LinkedIn hover override */
+      .social-links a[aria-label*="LinkedIn"]:hover {
+        color: #60a5fa !important;
+      }
+    }
 
   </style>
 </head>
