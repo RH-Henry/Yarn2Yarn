@@ -1,0 +1,901 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Yarn 2 Yarn — Yarn calculator</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <link rel="icon" type="image/x-icon" href="YYlogo.ico">
+  <style>
+    body {
+      font-family: 'Comic Neue', cursive;
+      background-image: url("https://images.pexels.com/photos/5807038/pexels-photo-5807038.jpeg?cs=srgb&dl=pexels-kseniachernaya-5807038.jpg&fm=jpg&_gl=1*kslztp*_ga*MTE4Mzk4MDU1My4xNzY2OTM3MTU1*_ga_8JE65Q40S6*czE3NjY5MzcxNTQkbzEkZzEkdDE3NjY5Mzg4NjIkajQ4JGwwJGgw");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      position: relative;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(10px);
+    }
+    .btn-kawaii {
+      transition: all 0.3s;
+    }
+    .btn-kawaii:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 8px 15px rgba(255, 182, 193, 0.3);
+    }
+    .bg-gradient-to-br {
+      position: relative;
+      background-image: url("https://images.pexels.com/photos/5807038/pexels-photo-5807038.jpeg?cs=srgb&dl=pexels-kseniachernaya-5807038.jpg&fm=jpg&_gl=1*kslztp*_ga*MTE4Mzk4MDU1My4xNzY2OTM3MTU1*_ga_8JE65Q40S6*czE3NjY5MzcxNTQkbzEkZzEkdDE3NjY5Mzg4NjIkajQ4JGwwJGgw");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    .bg-gradient-to-br::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(to bottom right, rgba(255, 247, 207, 0.882), rgba(138, 235, 255, 0.134));
+      z-index: -1;
+    }
+    .main-container {
+      background: linear-gradient(to bottom right, rgba(247, 255, 241, 0.946), rgba(20, 148, 170, 0.134));
+      border-radius: 2rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      padding: 2rem;
+      backdrop-filter: blur(15px);
+      margin: 2rem auto;
+      max-width: 1200px;
+    }
+    .status {
+      font-size: 0.85rem;
+    }
+    .status[data-state="ok"] {
+      color: #0f766e;
+    }
+    .status[data-state="warn"] {
+      color: #b45309;
+    }
+    .status[data-state="error"] {
+      color: #b91c1c;
+    }
+    @media (max-width: 768px) {
+      .main-container {
+        margin-top: 0;
+        margin-bottom: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 1.5rem;
+        border-bottom-right-radius: 1.5rem;
+      }
+      body {
+        padding-top: 0;
+        background: linear-gradient(to bottom right, rgba(255, 247, 207, 0.882), rgba(138, 235, 255, 0.134));
+      }
+      .bg-gradient-to-br {
+        background: linear-gradient(to bottom right, rgba(255, 247, 207, 0.882), rgba(138, 235, 255, 0.134));
+      }
+    }
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-image: none;
+        background: linear-gradient(to bottom right, #512121, #250027);
+        color: #f8fafc;
+      }
+      .main-container {
+        background: linear-gradient(to bottom right, #11182bd5, #300f31b1);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      }
+      h1, h2, h3, h4 {
+        color: #f9a8d4 !important;
+      }
+      p, label, .text-sm {
+        color: #e5e7eb !important;
+      }
+      .bg-pink-50 {
+        background: rgba(30, 41, 59, 0.9) !important;
+        border-color: rgba(148, 163, 184, 0.25) !important;
+      }
+      .glass {
+        background: rgba(28, 23, 50, 0.7);
+        backdrop-filter: blur(14px);
+      }
+      .btn-kawaii {
+        background-color: #ec4899 !important;
+        color: white !important;
+      }
+      .btn-kawaii:hover {
+        background-color: #f472b6 !important;
+      }
+      .bg-gradient-to-br::before {
+        background: linear-gradient(to bottom right, rgba(61, 50, 14, 0.882), rgba(3, 52, 63, 0.489));
+      }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-yellow-100 to-blue-200 text-pink-900 leading-relaxed">
+  <main class="main-container">
+    <header class="max-w-6xl mx-auto px-6 py-6">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+        <h1 class="text-3xl font-bold text-pink-700 text-center md:text-left w-full md:w-auto mb-4 md:mb-0">
+          Yarn 2 Yarn
+        </h1>
+        <nav class="flex flex-col md:flex-row items-center justify-center md:justify-end space-y-2 md:space-y-0 md:space-x-4 w-full md:w-auto">
+          <a href="index.html" class="hover:text-pink-500 transition-colors px-4 py-2 text-center md:text-left">Home</a>
+          <a href="#calculator" class="hover:text-pink-500 transition-colors px-4 py-2 text-center md:text-left">Calculator</a>
+          <a href="index.html#buy" class="text-white bg-pink-400 px-4 py-2 rounded-xl shadow-lg hover:bg-pink-500 transition-colors text-center md:text-left">Buy</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="max-w-6xl mx-auto px-6">
+      <section id="calculator" class="py-8">
+        <p class="text-sm uppercase text-pink-500 font-bold tracking-widest" style="font-size: 22px; line-height: 28px;">Yarn calculator</p>
+        <h2 class="text-3xl md:text-4xl font-bold mt-3 text-pink-600">Estimate the yarn you need</h2>
+        <p class="mt-4 text-pink-700">
+          Choose Simple or Precise, upload your file(s), pick your unit, enter your swatch size and mass, and get the result.
+        </p>
+      </section>
+
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start pb-12">
+        <div class="p-6 bg-pink-50 rounded-3xl shadow-xl border-2 border-pink-200">
+          <h3 class="text-lg font-bold text-pink-600">1) Pattern area</h3>
+
+          <div class="mt-4 glass rounded-2xl border-2 border-pink-200 p-4">
+            <p class="text-sm font-bold text-pink-500">Mode</p>
+            <div class="mt-3 flex flex-wrap gap-4 text-sm text-pink-700">
+              <label class="flex items-center gap-2">
+                <input type="radio" name="area-mode" value="precise" checked>
+                Precise (upload .yy)
+              </label>
+              <label class="flex items-center gap-2">
+                <input type="radio" name="area-mode" value="simple">
+                Simple (max dimensions)
+              </label>
+              <label class="flex items-center gap-2">
+                <input type="radio" name="area-mode" value="direct">
+                Direct area
+              </label>
+            </div>
+          </div>
+
+          <div id="file-section" class="mt-6">
+            <input id="file-input" type="file" accept=".yy,.json,.txt,.zip" multiple class="hidden">
+            <div id="dropzone" class="p-6 border-2 border-dashed border-pink-300 rounded-2xl text-center bg-white/70 cursor-pointer hover:bg-pink-50 transition">
+              <div class="text-3xl text-pink-400"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+              <p class="mt-2 text-pink-700">Drop your .yy or .zip here or click to choose</p>
+              <p class="text-xs text-pink-400">Multiple files supported</p>
+            </div>
+            <p id="file-status" class="status mt-3" data-state="warn">No files uploaded.</p>
+            <div id="file-list" class="mt-4 space-y-3"></div>
+          </div>
+
+          <div id="simple-section" class="mt-6 hidden">
+            <div class="grid grid-cols-1 gap-4">
+              <div>
+                <label for="simple-length" class="text-sm font-bold text-pink-600">Max length</label>
+                <div class="mt-2 flex gap-3 items-center">
+                  <input id="simple-length" type="number" min="0" step="0.1" placeholder="e.g. 60" class="w-full p-3 rounded-xl border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
+                  <span id="unit-label-length" class="text-sm text-pink-500">cm</span>
+                </div>
+              </div>
+              <div>
+                <label for="simple-width" class="text-sm font-bold text-pink-600">Max width</label>
+                <div class="mt-2 flex gap-3 items-center">
+                  <input id="simple-width" type="number" min="0" step="0.1" placeholder="e.g. 50" class="w-full p-3 rounded-xl border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
+                  <span id="unit-label-width" class="text-sm text-pink-500">cm</span>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="simple-pieces" class="text-sm font-bold text-pink-600">Pieces</label>
+                <div class="mt-2 flex gap-3 items-center">
+                  <input id="simple-pieces" type="number" min="1" step="1" value="1" class="w-full p-3 rounded-xl border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
+                </div>
+              </div>
+              <label class="flex items-center gap-2 text-sm text-pink-700 mt-2">
+                <input id="simple-mirror" type="checkbox">
+                Mirror (x2)
+              </label>
+            </div>
+            <p id="simple-area-note" class="text-xs text-pink-400 mt-2">Enter length and width to estimate the area.</p>
+          </div>
+
+          <div id="direct-section" class="mt-6 hidden">
+            <div class="grid grid-cols-1 gap-4">
+              <div>
+                <label for="direct-area" class="text-sm font-bold text-pink-600">Area</label>
+                <div class="mt-2 flex gap-3 items-center">
+                  <input id="direct-area" type="number" min="0" step="0.01" placeholder="e.g. 1800" class="w-full p-3 rounded-xl border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
+                  <span id="unit-label-area" class="text-sm text-pink-500">cm²</span>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="direct-pieces" class="text-sm font-bold text-pink-600">Pieces</label>
+                <div class="mt-2 flex gap-3 items-center">
+                  <input id="direct-pieces" type="number" min="1" step="1" value="1" class="w-full p-3 rounded-xl border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
+                </div>
+              </div>
+              <label class="flex items-center gap-2 text-sm text-pink-700 mt-2">
+                <input id="direct-mirror" type="checkbox">
+                Mirror (x2)
+              </label>
+            </div>
+            <p id="direct-area-note" class="text-xs text-pink-400 mt-2">Enter a total area or a single piece area.</p>
+          </div>
+        </div>
+
+        <div class="p-6 bg-pink-50 rounded-3xl shadow-xl border-2 border-pink-200">
+          <h3 class="text-lg font-bold text-pink-600">2) Swatch & result</h3>
+
+          <div class="mt-4 grid grid-cols-1 gap-4">
+            <div>
+              <label for="unit-select" class="text-sm font-bold text-pink-600">Unit</label>
+              <div class="mt-2 flex gap-3 items-center">
+                <select id="unit-select" class="w-full p-3 rounded-xl border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
+                  <option value="cm" selected>cm</option>
+                  <option value="in">in</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label for="swatch-width" class="text-sm font-bold text-pink-600">Swatch width</label>
+              <div class="mt-2 flex gap-3 items-center">
+                <input id="swatch-width" type="number" min="0" step="0.01" placeholder="e.g. 10" class="w-full p-3 rounded-xl border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
+                <span id="unit-label-swatch-w" class="text-sm text-pink-500">cm</span>
+              </div>
+            </div>
+            <div>
+              <label for="swatch-height" class="text-sm font-bold text-pink-600">Swatch height</label>
+              <div class="mt-2 flex gap-3 items-center">
+                <input id="swatch-height" type="number" min="0" step="0.01" placeholder="e.g. 10" class="w-full p-3 rounded-xl border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
+                <span id="unit-label-swatch-h" class="text-sm text-pink-500">cm</span>
+              </div>
+            </div>
+            <div>
+              <label for="swatch-mass" class="text-sm font-bold text-pink-600">Swatch mass</label>
+              <div class="mt-2 flex gap-3 items-center">
+                <input id="swatch-mass" type="number" min="0" step="0.1" placeholder="e.g. 12" class="w-full p-3 rounded-xl border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
+                <span class="text-sm text-pink-500">g</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 glass rounded-2xl border-2 border-pink-200 p-4">
+            <p class="text-sm font-bold text-pink-500">Result</p>
+            <div class="mt-3 grid grid-cols-1 gap-2">
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-pink-700">Estimated mass</span>
+                <span id="result-base" class="text-lg font-bold text-pink-600">—</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-pink-700">Range (incl. +10%)</span>
+                <span id="result-range" class="text-lg font-bold text-pink-600">—</span>
+              </div>
+            </div>
+            <div class="mt-4 text-xs text-pink-400" id="result-details">Fill the fields to get an estimate.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-6">
+        <h3 class="text-lg font-bold text-pink-600">Quick note</h3>
+        <p class="mt-2 text-pink-700">
+          Bigger swatches give better estimates. The range always includes an extra 10% to stay safe.
+        </p>
+      </section>
+
+      <footer class="py-12 text-center text-sm text-pink-500">
+        <p>© Yarn 2 Yarn — Convert patterns & keep what you love.</p>
+      </footer>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+  <script>
+    (function(){
+      var dropzone = document.getElementById('dropzone');
+      var fileInput = document.getElementById('file-input');
+      var statusEl = document.getElementById('file-status');
+      var fileList = document.getElementById('file-list');
+      var modeInputs = document.querySelectorAll('input[name=\"area-mode\"]');
+      var fileSection = document.getElementById('file-section');
+      var simpleSection = document.getElementById('simple-section');
+      var directSection = document.getElementById('direct-section');
+      var simpleLength = document.getElementById('simple-length');
+      var simpleWidth = document.getElementById('simple-width');
+      var simplePieces = document.getElementById('simple-pieces');
+      var simpleMirror = document.getElementById('simple-mirror');
+      var simpleAreaNote = document.getElementById('simple-area-note');
+      var directArea = document.getElementById('direct-area');
+      var directPieces = document.getElementById('direct-pieces');
+      var directMirror = document.getElementById('direct-mirror');
+      var directAreaNote = document.getElementById('direct-area-note');
+      var unitSelect = document.getElementById('unit-select');
+      var unitLabelLength = document.getElementById('unit-label-length');
+      var unitLabelWidth = document.getElementById('unit-label-width');
+      var unitLabelSwatchW = document.getElementById('unit-label-swatch-w');
+      var unitLabelSwatchH = document.getElementById('unit-label-swatch-h');
+      var unitLabelArea = document.getElementById('unit-label-area');
+      var swatchWidth = document.getElementById('swatch-width');
+      var swatchHeight = document.getElementById('swatch-height');
+      var swatchMass = document.getElementById('swatch-mass');
+      var resultBase = document.getElementById('result-base');
+      var resultRange = document.getElementById('result-range');
+      var resultDetails = document.getElementById('result-details');
+
+      var filesData = [];
+      var nextFileId = 1;
+      var marginFactor = 1.10;
+
+      function isZipFile(file) {
+        if (!file || !file.name) return false;
+        return file.name.toLowerCase().endsWith('.zip') || file.type === 'application/zip';
+      }
+
+      function setStatus(message, state) {
+        statusEl.textContent = message;
+        statusEl.setAttribute('data-state', state);
+      }
+
+      function parseNumber(value) {
+        var n = parseFloat(value);
+        return Number.isFinite(n) ? n : null;
+      }
+
+      function formatNumber(value, decimals) {
+        return value.toFixed(decimals);
+      }
+
+      function getUnit() {
+        return unitSelect ? unitSelect.value : 'cm';
+      }
+
+      function toCm(value) {
+        if (!Number.isFinite(value)) return value;
+        return getUnit() === 'in' ? value * 2.54 : value;
+      }
+
+      function areaToDisplay(areaCm2) {
+        if (!Number.isFinite(areaCm2)) return areaCm2;
+        return getUnit() === 'in' ? areaCm2 / 6.4516 : areaCm2;
+      }
+
+      function formatArea(areaCm2) {
+        var display = areaToDisplay(areaCm2);
+        return formatNumber(display, 2) + ' ' + getUnit() + '²';
+      }
+
+      function polygonArea(points) {
+        var area = 0;
+        for (var i = 0; i < points.length; i++) {
+          var j = (i + 1) % points.length;
+          area += points[i].x * points[j].y - points[j].x * points[i].y;
+        }
+        return Math.abs(area) / 2;
+      }
+
+      function pointFrom(value) {
+        if (Array.isArray(value) && value.length >= 2) {
+          return { x: parseFloat(value[0]), y: parseFloat(value[1]) };
+        }
+        if (value && typeof value === 'object') {
+          var x = value.x !== undefined ? value.x : value.X !== undefined ? value.X : value[0];
+          var y = value.y !== undefined ? value.y : value.Y !== undefined ? value.Y : value[1];
+          return { x: parseFloat(x), y: parseFloat(y) };
+        }
+        return null;
+      }
+
+      function isPointLike(value) {
+        var p = pointFrom(value);
+        return p && Number.isFinite(p.x) && Number.isFinite(p.y);
+      }
+
+      function looksLikePointsArray(arr) {
+        if (!Array.isArray(arr) || arr.length < 3) return false;
+        for (var i = 0; i < arr.length; i++) {
+          if (!isPointLike(arr[i])) return false;
+        }
+        return true;
+      }
+
+      function findAreaField(obj, depth) {
+        if (!obj || depth > 7) return null;
+        if (Array.isArray(obj)) {
+          for (var i = 0; i < obj.length; i++) {
+            var resArr = findAreaField(obj[i], depth + 1);
+            if (resArr) return resArr;
+          }
+          return null;
+        }
+        if (typeof obj === 'object') {
+          var keys = Object.keys(obj);
+          for (var k = 0; k < keys.length; k++) {
+            var key = keys[k];
+            var value = obj[key];
+            if (/area|surface/i.test(key)) {
+              var num = typeof value === 'number' ? value : parseFloat(value);
+              if (Number.isFinite(num) && num > 0) {
+                return { area: num, source: 'field "' + key + '"' };
+              }
+            }
+          }
+          for (var k2 = 0; k2 < keys.length; k2++) {
+            var res = findAreaField(obj[keys[k2]], depth + 1);
+            if (res) return res;
+          }
+        }
+        return null;
+      }
+
+      function findPoints(obj, depth) {
+        if (!obj || depth > 7) return null;
+        if (Array.isArray(obj)) {
+          if (looksLikePointsArray(obj)) return obj;
+          for (var i = 0; i < obj.length; i++) {
+            var resArr = findPoints(obj[i], depth + 1);
+            if (resArr) return resArr;
+          }
+          return null;
+        }
+        if (typeof obj === 'object') {
+          var keys = Object.keys(obj);
+          for (var k = 0; k < keys.length; k++) {
+            var key = keys[k];
+            var value = obj[key];
+            if (/points|polygon|vertices|path|outline/i.test(key) && looksLikePointsArray(value)) {
+              return value;
+            }
+          }
+          for (var k2 = 0; k2 < keys.length; k2++) {
+            var res = findPoints(obj[keys[k2]], depth + 1);
+            if (res) return res;
+          }
+        }
+        return null;
+      }
+
+      function parsePointsFromText(text) {
+        var lines = text.split(/\r?\n/);
+        var points = [];
+        for (var i = 0; i < lines.length; i++) {
+          var line = lines[i].trim();
+          if (!line) continue;
+          var match = line.match(/^(-?\d+(?:\.\d+)?)[,;\s]+(-?\d+(?:\.\d+)?)/);
+          if (match) {
+            points.push({ x: parseFloat(match[1]), y: parseFloat(match[2]) });
+          }
+        }
+        return points.length >= 3 ? points : null;
+      }
+
+      function parseYY(content) {
+        var data = null;
+        try {
+          data = JSON.parse(content);
+        } catch (err) {
+          data = null;
+        }
+
+        if (data && typeof data === 'object') {
+          var points = null;
+          if (Array.isArray(data.points) && looksLikePointsArray(data.points)) {
+            points = data.points;
+          } else {
+            points = findPoints(data, 0);
+          }
+
+          if (points) {
+            var mapped = points.map(pointFrom).filter(function(p){ return p && Number.isFinite(p.x) && Number.isFinite(p.y); });
+            if (mapped.length >= 3) {
+              var areaNorm = polygonArea(mapped);
+              var physW = parseFloat(data.phys_w);
+              var physH = parseFloat(data.phys_h);
+              if (Number.isFinite(physW) && Number.isFinite(physH) && physW > 0 && physH > 0) {
+                return { area: areaNorm * physW * physH, source: 'points + phys_w/phys_h' };
+              }
+              return { error: 'Missing phys_w/phys_h in the file.' };
+            }
+          }
+
+          var areaField = findAreaField(data, 0);
+          if (areaField) {
+            return { area: areaField.area, source: areaField.source };
+          }
+        }
+
+        var areaMatch = content.match(/(area|surface)\s*[:=]\s*([0-9.+-eE]+)/i);
+        if (areaMatch) {
+          var areaNum = parseFloat(areaMatch[2]);
+          if (Number.isFinite(areaNum) && areaNum > 0) {
+            return { area: areaNum, source: 'text (area/surface)' };
+          }
+        }
+
+        var pointsText = parsePointsFromText(content);
+        if (pointsText) {
+          return { area: polygonArea(pointsText), source: 'text coordinates' };
+        }
+
+        return { error: 'Area not found in this file.' };
+      }
+
+      function getMode() {
+        var checked = document.querySelector('input[name="area-mode"]:checked');
+        return checked ? checked.value : 'precise';
+      }
+
+      function updateModeUI() {
+        var mode = getMode();
+        if (mode === 'simple') {
+          if (fileSection) fileSection.classList.add('hidden');
+          if (simpleSection) simpleSection.classList.remove('hidden');
+          if (directSection) directSection.classList.add('hidden');
+        } else {
+          if (simpleSection) simpleSection.classList.add('hidden');
+          if (mode === 'direct') {
+            if (fileSection) fileSection.classList.add('hidden');
+            if (directSection) directSection.classList.remove('hidden');
+          } else {
+            if (fileSection) fileSection.classList.remove('hidden');
+            if (directSection) directSection.classList.add('hidden');
+          }
+        }
+      }
+
+      function updateStatus() {
+        if (filesData.length === 0) {
+          setStatus('No files uploaded.', 'warn');
+          return;
+        }
+        var validCount = filesData.filter(function(item){ return Number.isFinite(item.areaCm2); }).length;
+        var message = filesData.length + ' file(s) ready';
+        if (validCount !== filesData.length) {
+          message += ' (' + validCount + ' valid)';
+        }
+        setStatus(message + '.', validCount > 0 ? 'ok' : 'warn');
+      }
+
+      function renderFileList() {
+        if (!fileList) return;
+        if (filesData.length === 0) {
+          fileList.innerHTML = '<p class="text-xs text-pink-400">No files yet.</p>';
+          return;
+        }
+        var html = '';
+        filesData.forEach(function(item){
+          var hasArea = Number.isFinite(item.areaCm2);
+          var areaText = hasArea ? formatArea(item.areaCm2) : '—';
+          var statusText = item.error ? '<span class="text-xs text-red-500">' + item.error + '</span>' : '<span class="text-xs text-pink-400">Area: ' + areaText + '</span>';
+          html += '' +
+            '<div class="p-4 rounded-2xl border-2 border-pink-200 bg-white/70">' +
+              '<div class="flex items-start justify-between gap-3">' +
+                '<div>' +
+                  '<p class="text-sm font-bold text-pink-600">' + item.name + '</p>' +
+                  statusText +
+                '</div>' +
+                '<button type="button" data-action="remove" data-id="' + item.id + '" class="text-xs text-pink-500 underline hover:text-pink-700">Remove</button>' +
+              '</div>' +
+              '<div class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-pink-700">' +
+                '<div>' +
+                  '<label class="text-xs font-bold text-pink-600">Pieces</label>' +
+                  '<input type="number" min="1" step="1" value="' + item.pieces + '" data-action="pieces" data-id="' + item.id + '" class="mt-1 w-full p-2 rounded-xl border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">' +
+                '</div>' +
+                '<label class="flex items-center gap-2 mt-6">' +
+                  '<input type="checkbox" data-action="mirror" data-id="' + item.id + '"' + (item.mirror ? ' checked' : '') + '>' +
+                  'Mirror (x2)' +
+                '</label>' +
+              '</div>' +
+            '</div>';
+        });
+        fileList.innerHTML = html;
+      }
+
+      function addEntryFromContent(name, content) {
+        var entry = {
+          id: nextFileId++,
+          name: name,
+          areaCm2: null,
+          error: 'Reading file...',
+          mirror: false,
+          pieces: 1
+        };
+        filesData.push(entry);
+        renderFileList();
+        updateStatus();
+
+        var parsed = parseYY(content);
+        if (parsed && Number.isFinite(parsed.area)) {
+          entry.areaCm2 = parsed.area;
+          entry.error = null;
+        } else if (parsed && parsed.error) {
+          entry.error = parsed.error;
+        } else {
+          entry.error = 'Area not found in this file.';
+        }
+        renderFileList();
+        updateStatus();
+        recalc();
+      }
+
+      function addSingleFile(file) {
+        var entry = {
+          id: nextFileId++,
+          name: file.name,
+          areaCm2: null,
+          error: 'Reading file...',
+          mirror: false,
+          pieces: 1
+        };
+        filesData.push(entry);
+        renderFileList();
+        updateStatus();
+
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          var content = String(e.target.result || '');
+          var parsed = parseYY(content);
+          if (parsed && Number.isFinite(parsed.area)) {
+            entry.areaCm2 = parsed.area;
+            entry.error = null;
+          } else if (parsed && parsed.error) {
+            entry.error = parsed.error;
+          } else {
+            entry.error = 'Area not found in this file.';
+          }
+          renderFileList();
+          updateStatus();
+          recalc();
+        };
+        reader.onerror = function() {
+          entry.error = 'Could not read the file.';
+          renderFileList();
+          updateStatus();
+        };
+        reader.readAsText(file);
+      }
+
+      function addZipFile(file) {
+        if (typeof JSZip === 'undefined') {
+          setStatus('Zip support is not available. Try .yy files instead.', 'error');
+          return;
+        }
+        JSZip.loadAsync(file).then(function(zip){
+          var found = false;
+          zip.forEach(function(relativePath, zipEntry){
+            if (zipEntry.dir) return;
+            if (!/\.yy$/i.test(zipEntry.name)) return;
+            found = true;
+            var name = file.name + ':' + zipEntry.name;
+            zipEntry.async('string').then(function(content){
+              addEntryFromContent(name, content);
+            }).catch(function(){
+              addEntryFromContent(name, '');
+            });
+          });
+          if (!found) {
+            setStatus('No .yy files found in the zip.', 'warn');
+          }
+        }).catch(function(){
+          setStatus('Could not read the zip file.', 'error');
+        });
+      }
+
+      function addFiles(fileListInput) {
+        if (!fileListInput || fileListInput.length === 0) return;
+        Array.prototype.forEach.call(fileListInput, function(file){
+          if (isZipFile(file)) {
+            addZipFile(file);
+          } else {
+            addSingleFile(file);
+          }
+        });
+      }
+
+      function recalc() {
+        var mode = getMode();
+        var areaMin = null;
+        var areaMax = null;
+        var areaMean = null;
+
+        if (mode === 'simple') {
+          var length = parseNumber(simpleLength.value);
+          var widthSimple = parseNumber(simpleWidth.value);
+          var pieces = parseInt(simplePieces.value, 10);
+          if (!Number.isFinite(pieces) || pieces < 1) pieces = 1;
+          var mirrorFactor = simpleMirror && simpleMirror.checked ? 2 : 1;
+          if (length && widthSimple) {
+            var lengthCm = toCm(length);
+            var widthCm = toCm(widthSimple);
+            var baseArea = lengthCm * widthCm * 2 * pieces * mirrorFactor;
+            areaMin = baseArea * 0.8;
+            areaMax = baseArea * 1.0;
+            areaMean = (areaMin + areaMax) / 2;
+            simpleAreaNote.textContent = 'Estimated area: ' + formatArea(areaMin) + ' – ' + formatArea(areaMax);
+          } else {
+            simpleAreaNote.textContent = 'Enter length and width to estimate the area.';
+          }
+        } else if (mode === 'direct') {
+          var directValue = parseNumber(directArea.value);
+          var piecesDirect = parseInt(directPieces.value, 10);
+          if (!Number.isFinite(piecesDirect) || piecesDirect < 1) piecesDirect = 1;
+          var mirrorDirect = directMirror && directMirror.checked ? 2 : 1;
+          if (directValue) {
+            var areaCm2 = getUnit() === 'in' ? directValue * 6.4516 : directValue;
+            var totalArea = areaCm2 * piecesDirect * mirrorDirect;
+            areaMin = totalArea;
+            areaMax = totalArea;
+            areaMean = totalArea;
+            directAreaNote.textContent = 'Total area: ' + formatArea(totalArea);
+          } else {
+            directAreaNote.textContent = 'Enter an area to calculate.';
+          }
+        } else {
+          var totalMin = 0;
+          var totalMax = 0;
+          filesData.forEach(function(item){
+            if (!Number.isFinite(item.areaCm2)) return;
+            var piecesCount = parseInt(item.pieces, 10);
+            if (!Number.isFinite(piecesCount) || piecesCount < 1) piecesCount = 1;
+            var mirror = item.mirror ? 2 : 1;
+            var area = item.areaCm2 * piecesCount * mirror;
+            totalMin += area;
+            totalMax += area;
+          });
+          if (totalMax > 0) {
+            areaMin = totalMin;
+            areaMax = totalMax;
+            areaMean = (areaMin + areaMax) / 2;
+          }
+        }
+
+        var swatchW = parseNumber(swatchWidth.value);
+        var swatchH = parseNumber(swatchHeight.value);
+        var mass = parseNumber(swatchMass.value);
+        var swatchWcm = swatchW ? toCm(swatchW) : null;
+        var swatchHcm = swatchH ? toCm(swatchH) : null;
+
+        if (!areaMin || !areaMax || !swatchWcm || !swatchHcm || !mass) {
+          resultBase.textContent = '—';
+          resultRange.textContent = '—';
+          resultDetails.textContent = 'Fill the fields to get an estimate.';
+          return;
+        }
+
+        var swatchArea = swatchWcm * swatchHcm;
+        if (swatchArea <= 0 || mass <= 0) {
+          resultBase.textContent = '—';
+          resultRange.textContent = '—';
+          resultDetails.textContent = 'Make sure all values are positive.';
+          return;
+        }
+
+        var density = mass / swatchArea;
+        var baseMass = areaMean * density;
+        var minMass = areaMin * density;
+        var maxMass = areaMax * density;
+        var maxWithMargin = maxMass * marginFactor;
+
+        resultBase.textContent = formatNumber(baseMass, 1) + ' g';
+        resultRange.textContent = formatNumber(minMass, 1) + ' – ' + formatNumber(maxWithMargin, 1) + ' g';
+        resultDetails.textContent = 'Total area: ' + formatArea(areaMean) + ' · Swatch area: ' + formatArea(swatchArea) + ' · +10% included';
+      }
+
+      function updateUnitLabels() {
+        var unit = getUnit();
+        if (unitLabelLength) unitLabelLength.textContent = unit;
+        if (unitLabelWidth) unitLabelWidth.textContent = unit;
+        if (unitLabelSwatchW) unitLabelSwatchW.textContent = unit;
+        if (unitLabelSwatchH) unitLabelSwatchH.textContent = unit;
+        if (unitLabelArea) unitLabelArea.textContent = unit + '²';
+        renderFileList();
+      }
+
+      updateModeUI();
+      modeInputs.forEach(function(input){
+        input.addEventListener('change', function(){
+          updateModeUI();
+          recalc();
+        });
+      });
+
+      dropzone.addEventListener('click', function(){
+        fileInput.click();
+      });
+
+      dropzone.addEventListener('dragover', function(e){
+        e.preventDefault();
+        dropzone.classList.add('ring-4', 'ring-pink-200');
+      });
+
+      dropzone.addEventListener('dragleave', function(){
+        dropzone.classList.remove('ring-4', 'ring-pink-200');
+      });
+
+      dropzone.addEventListener('drop', function(e){
+        e.preventDefault();
+        dropzone.classList.remove('ring-4', 'ring-pink-200');
+        var files = e.dataTransfer.files;
+        addFiles(files);
+      });
+
+      fileInput.addEventListener('change', function(){
+        var files = fileInput.files;
+        addFiles(files);
+        fileInput.value = '';
+      });
+
+      fileList.addEventListener('click', function(e){
+        var action = e.target && e.target.dataset ? e.target.dataset.action : null;
+        var id = e.target && e.target.dataset ? e.target.dataset.id : null;
+        if (action === 'remove' && id) {
+          filesData = filesData.filter(function(item){ return String(item.id) !== String(id); });
+          renderFileList();
+          updateStatus();
+          recalc();
+        }
+      });
+
+      fileList.addEventListener('input', function(e){
+        var action = e.target && e.target.dataset ? e.target.dataset.action : null;
+        var id = e.target && e.target.dataset ? e.target.dataset.id : null;
+        if (!action || !id) return;
+        var item = filesData.find(function(entry){ return String(entry.id) === String(id); });
+        if (!item) return;
+        if (action === 'pieces') {
+          var pieces = parseInt(e.target.value, 10);
+          item.pieces = Number.isFinite(pieces) && pieces > 0 ? pieces : 1;
+        }
+        if (action === 'mirror') {
+          item.mirror = !!e.target.checked;
+        }
+        recalc();
+      });
+
+      fileList.addEventListener('change', function(e){
+        var action = e.target && e.target.dataset ? e.target.dataset.action : null;
+        var id = e.target && e.target.dataset ? e.target.dataset.id : null;
+        if (!action || !id) return;
+        var item = filesData.find(function(entry){ return String(entry.id) === String(id); });
+        if (!item) return;
+        if (action === 'mirror') {
+          item.mirror = !!e.target.checked;
+          recalc();
+        }
+      });
+
+      unitSelect.addEventListener('change', function(){
+        updateUnitLabels();
+        recalc();
+      });
+
+      [simpleLength, simpleWidth, simplePieces, simpleMirror, directArea, directPieces, directMirror, swatchWidth, swatchHeight, swatchMass].forEach(function(input){
+        input.addEventListener('input', recalc);
+      });
+
+      [simpleMirror, directMirror].forEach(function(input){
+        input.addEventListener('change', recalc);
+      });
+
+      updateUnitLabels();
+      updateStatus();
+    })();
+  </script>
+</body>
+</html>
