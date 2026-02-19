@@ -351,14 +351,7 @@
 
           <!-- PDF preview -->
           <div class="relative w-full rounded-2xl overflow-hidden border border-pink-200 bg-white pdf-preview" style="height:70vh">
-            <iframe
-              id="pdf-iframe"
-              src="preview.pdf"
-              class="w-full h-full"
-              loading="lazy"
-              title="Yarn 2 Yarn – Interface preview">
-            </iframe>
-            <div id="pdf-canvas" class="hidden w-full h-full"></div>
+            <div id="pdf-canvas" class="w-full h-full" data-pdf="preview.pdf"></div>
           </div>
 
           <!-- Download button -->
@@ -553,17 +546,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <script>
     (function(){
-      var iframe = document.getElementById('pdf-iframe');
       var canvasWrap = document.getElementById('pdf-canvas');
-      if (!iframe || !canvasWrap || !window.pdfjsLib) return;
-
-      iframe.style.display = 'none';
-      canvasWrap.classList.remove('hidden');
+      if (!canvasWrap || !window.pdfjsLib) return;
 
       var pdfjsLib = window.pdfjsLib;
       pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
 
-      var url = iframe.getAttribute('src');
+      var url = canvasWrap.getAttribute('data-pdf');
       pdfjsLib.getDocument(url).promise.then(function(pdf) {
         var pageCount = pdf.numPages;
         for (var i = 1; i <= pageCount; i++) {
