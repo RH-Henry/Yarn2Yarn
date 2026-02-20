@@ -162,7 +162,7 @@
               </label>
               <label class="flex items-center gap-2">
                 <input type="radio" name="area-mode" value="simple">
-                Simple (max dimensions)
+                Simple (length × width)
               </label>
               <label class="flex items-center gap-2">
                 <input type="radio" name="area-mode" value="direct">
@@ -723,7 +723,7 @@
           if (length && widthSimple) {
             var lengthCm = toCm(length);
             var widthCm = toCm(widthSimple);
-            var baseArea = lengthCm * widthCm * 2 * pieces * mirrorFactor;
+            var baseArea = lengthCm * widthCm * pieces * mirrorFactor;
             areaMin = baseArea * 0.8;
             areaMax = baseArea * 1.0;
             areaMean = (areaMin + areaMax) / 2;
