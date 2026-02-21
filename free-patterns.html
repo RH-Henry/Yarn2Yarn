@@ -3,74 +3,1115 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Free Patterns — Yarn 2 Yarn</title>
+  <title>Yarn 2 Yarn - Free Patterns</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
   <link rel="icon" type="image/x-icon" href="YYlogo.ico">
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"
+    defer
+    onerror="(function(){var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js';document.head.appendChild(s);}())">
+  </script>
+  <style>
+    body {
+      font-family: 'Comic Neue', cursive;
+      background-image: url("https://images.pexels.com/photos/5807038/pexels-photo-5807038.jpeg?cs=srgb&dl=pexels-kseniachernaya-5807038.jpg&fm=jpg&_gl=1*kslztp*_ga*MTE4Mzk4MDU1My4xNzY2OTM3MTU1*_ga_8JE65Q40S6*czE3NjY5MzcxNTQkbzEkZzEkdDE3NjY5Mzg4NjIkajQ4JGwwJGgw");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      position: relative;
+    }
+    .btn-kawaii {
+      transition: all 0.3s;
+    }
+    .btn-kawaii:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 8px 15px rgba(255, 182, 193, 0.3);
+    }
+    .bg-gradient-to-br {
+      position: relative;
+      background-image: url("https://images.pexels.com/photos/5807038/pexels-photo-5807038.jpeg?cs=srgb&dl=pexels-kseniachernaya-5807038.jpg&fm=jpg&_gl=1*kslztp*_ga*MTE4Mzk4MDU1My4xNzY2OTM3MTU1*_ga_8JE65Q40S6*czE3NjY5MzcxNTQkbzEkZzEkdDE3NjY5Mzg4NjIkajQ4JGwwJGgw");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    .bg-gradient-to-br::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(to bottom right, rgba(255, 247, 207, 0.882), rgba(138, 235, 255, 0.134));
+      z-index: -1;
+    }
+    .main-container {
+      background: linear-gradient(to bottom right, rgba(247, 255, 241, 0.946), rgba(20, 148, 170, 0.134));
+      border-radius: 2rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      padding: 2rem;
+      backdrop-filter: blur(15px);
+      margin: 2rem auto;
+      max-width: 1200px;
+    }
+
+    @media (max-width: 768px) {
+      .main-container {
+        margin-top: 0;
+        margin-bottom: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 1.5rem;
+        border-bottom-right-radius: 1.5rem;
+        padding: 0.9rem;
+      }
+      .main-container .px-6 {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+      }
+      body {
+        padding-top: 0;
+        background: linear-gradient(to bottom right, rgba(255, 247, 207, 0.882), rgba(138, 235, 255, 0.134));
+      }
+      .bg-gradient-to-br {
+        background: linear-gradient(to bottom right, rgba(255, 247, 207, 0.882), rgba(138, 235, 255, 0.134));
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-image: none;
+        background: linear-gradient(to bottom right, #512121, #250027);
+        color: #f8fafc;
+      }
+      .main-container {
+        background: linear-gradient(to bottom right, #11182bd5, #300f31b1);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      }
+      h1, h2, h3, h4 {
+        color: #f9a8d4 !important;
+      }
+      p, label, .text-sm {
+        color: #e5e7eb !important;
+      }
+      .bg-pink-50 {
+        background: rgba(30, 41, 59, 0.9) !important;
+        border-color: rgba(148, 163, 184, 0.25) !important;
+      }
+      .btn-kawaii {
+        background-color: #ec4899 !important;
+        color: white !important;
+      }
+      .btn-kawaii:hover {
+        background-color: #f472b6 !important;
+      }
+      .bg-gradient-to-br::before {
+        background: linear-gradient(to bottom right, rgba(61, 50, 14, 0.882), rgba(3, 52, 63, 0.489));
+      }
+    }
+  </style>
 </head>
+<body class="bg-gradient-to-br from-yellow-100 to-blue-200 text-pink-900 leading-relaxed">
+  <main class="main-container">
+    <header class="max-w-6xl mx-auto px-6 py-6">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+        <h1 class="text-3xl font-bold text-pink-700 text-center md:text-left w-full md:w-auto mb-4 md:mb-0">Yarn 2 Yarn</h1>
+        <nav class="flex flex-col md:flex-row items-center justify-center md:justify-end space-y-2 md:space-y-0 md:space-x-4 w-full md:w-auto">
+          <a href="index.html" data-i18n="nav.home" class="hover:text-pink-500 transition-colors px-4 py-2 text-center md:text-left">Home</a>
+          <a href="calc.html" data-i18n="nav.calculator" class="hover:text-pink-500 transition-colors px-4 py-2 text-center md:text-left">Skein Calculator</a>
+          <a href="free-patterns.html" data-i18n="nav.free_patterns" class="hover:text-pink-500 transition-colors px-4 py-2 text-center md:text-left">Free Patterns</a>
+          <a href="index.html#buy" class="text-white bg-pink-400 px-4 py-2 rounded-xl shadow-lg hover:bg-pink-500 transition-colors text-center md:text-left"><span data-i18n="nav.buy">Buy</span></a>
+          <div class="flex items-center gap-2 px-2">
+            <label for="lang-select" data-i18n="nav.language" class="text-sm text-pink-700">Language</label>
+            <select id="lang-select" class="text-sm rounded-lg border-2 border-pink-200 bg-white/90 px-2 py-1 text-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-300">
+              <option value="en">English</option>
+              <option value="fr">Français</option>
+            </select>
+          </div>
+        </nav>
+      </div>
+    </header>
 
-<body class="bg-gradient-to-br from-yellow-100 to-blue-200 text-pink-900 leading-relaxed" style="font-family: 'Comic Neue', cursive;">
+    <div class="max-w-6xl mx-auto px-6">
+      <section class="py-8">
+        <p data-i18n="hero.kicker" class="text-sm uppercase text-pink-500 font-bold tracking-widest" style="font-size: 22px; line-height: 28px;">Free patterns</p>
+        <h2 data-i18n="hero.title" class="text-3xl md:text-4xl font-bold mt-3 text-pink-600">Generate and download</h2>
+      </section>
 
-  <main class="max-w-6xl mx-auto px-6 py-10">
+      <section class="py-8">
+        <div class="space-y-8">
+          <div class="bg-pink-50 rounded-3xl shadow-xl border-2 border-pink-200 p-6">
+            <h3 data-i18n="generator.title" class="text-2xl font-bold text-pink-600">Custom sweater generator</h3>
+            <p data-i18n="generator.description" class="mt-3 text-pink-700">2D preview only. Front, back, and sleeve all use the brown sleeve motif grid.</p>
 
-    <!-- Header -->
-    <div class="flex justify-between items-center mb-10">
-      <h1 class="text-3xl font-bold text-pink-700">Free Patterns</h1>
-      <a href="yarn2yarn.html.html" class="text-pink-600 hover:underline">← Back to home</a>
+            <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+              <div>
+                <label for="custom-shoulder" data-i18n="generator.shoulder" class="text-sm font-bold text-pink-600">Shoulder width (cm)</label>
+                <input id="custom-shoulder" type="number" min="32" max="70" step="0.1" value="44" class="mt-2 w-full p-3 rounded-xl border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
+              </div>
+              <div>
+                <label for="custom-chest" data-i18n="generator.chest" class="text-sm font-bold text-pink-600">Chest circumference (cm)</label>
+                <input id="custom-chest" type="number" min="70" max="180" step="0.1" value="100" class="mt-2 w-full p-3 rounded-xl border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
+              </div>
+              <div>
+                <label for="custom-bust-height" data-i18n="generator.bust_height" class="text-sm font-bold text-pink-600">Bust height (cm)</label>
+                <input id="custom-bust-height" type="number" min="45" max="95" step="0.1" value="70" class="mt-2 w-full p-3 rounded-xl border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
+              </div>
+              <div>
+                <label for="custom-arm-length" data-i18n="generator.arm_length" class="text-sm font-bold text-pink-600">Arm length (cm)</label>
+                <input id="custom-arm-length" type="number" min="35" max="85" step="0.1" value="58" class="mt-2 w-full p-3 rounded-xl border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
+              </div>
+              <div>
+                <label for="custom-fit" data-i18n="generator.fit" class="text-sm font-bold text-pink-600">Fit</label>
+                <select id="custom-fit" class="mt-2 w-full p-3 rounded-xl border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
+                  <option value="slim" data-i18n="generator.fit_slim">Slim</option>
+                  <option value="straight" selected data-i18n="generator.fit_straight">Straight</option>
+                  <option value="loose" data-i18n="generator.fit_loose">Loose</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="mt-6">
+              <p data-i18n="generator.preview_title" class="text-sm font-bold text-pink-600">2D piece preview</p>
+              <div class="mt-2 rounded-2xl border-2 border-pink-200 bg-white p-3 shadow-sm">
+                <svg id="custom-preview" viewBox="0 0 880 360" class="w-full h-64 sm:h-72" role="img" data-i18n-aria="generator.preview_aria" aria-label="Live preview of front, back and sleeve pieces"></svg>
+              </div>
+            </div>
+
+            <div class="mt-5 flex flex-col sm:flex-row sm:items-center gap-3">
+              <button id="custom-generate" class="btn-kawaii inline-flex items-center justify-center px-5 py-3 bg-pink-500 text-white rounded-2xl shadow-lg hover:bg-pink-600 transition">
+                <span data-i18n="generator.generate">Generate ZIP (.yy)</span>
+              </button>
+              <p id="custom-status" data-i18n="generator.ready" class="text-xs text-pink-500">Ready.</p>
+            </div>
+            <p data-i18n="generator.note" class="mt-3 text-xs text-pink-400">All exported pieces use the brown sleeve motif grid.</p>
+            <p data-i18n-html="generator.license" class="mt-2 text-xs text-pink-500">License: <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener" class="underline">CC BY-SA 4.0</a> for downloaded sweater patterns.</p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="py-12 text-center text-sm text-pink-500">
+        <p data-i18n="footer.copy">© Yarn 2 Yarn - Convert patterns and keep what you love.</p>
+      </footer>
     </div>
-
-    <p class="mb-8 text-pink-700">
-      Download free knitting models designed with Yarn 2 Yarn. 
-      Each pattern includes a printable file and can be adapted to your yarn inside the software.
-    </p>
-
-    <!-- Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-      <!-- Model 1 -->
-      <div class="bg-pink-50 rounded-2xl shadow-lg border-2 border-pink-200 p-4">
-        <img src="models/heart-sweater.png" alt="Heart Sweater" class="rounded-xl mb-4 w-full">
-        <h3 class="font-bold text-pink-600 text-lg">Heart Sweater</h3>
-        <p class="text-sm text-pink-700 mt-2">
-          A simple sweater with a centered heart motif. 
-          Perfect for beginners experimenting with motif placement.
-        </p>
-        <a href="models/heart-sweater.pdf" download
-           class="mt-4 inline-block bg-pink-500 text-white px-4 py-2 rounded-xl shadow hover:bg-pink-600 transition">
-          Download PDF
-        </a>
-      </div>
-
-      <!-- Model 2 -->
-      <div class="bg-pink-50 rounded-2xl shadow-lg border-2 border-pink-200 p-4">
-        <img src="models/basic-hat.png" alt="Basic Hat" class="rounded-xl mb-4 w-full">
-        <h3 class="font-bold text-pink-600 text-lg">Basic Hat</h3>
-        <p class="text-sm text-pink-700 mt-2">
-          A classic ribbed hat adaptable to any gauge. 
-          Great for testing yarn conversion.
-        </p>
-        <a href="models/basic-hat.pdf" download
-           class="mt-4 inline-block bg-pink-500 text-white px-4 py-2 rounded-xl shadow hover:bg-pink-600 transition">
-          Download PDF
-        </a>
-      </div>
-
-      <!-- Model 3 -->
-      <div class="bg-pink-50 rounded-2xl shadow-lg border-2 border-pink-200 p-4">
-        <img src="models/geometric-motif.png" alt="Geometric Motif" class="rounded-xl mb-4 w-full">
-        <h3 class="font-bold text-pink-600 text-lg">Geometric Motif</h3>
-        <p class="text-sm text-pink-700 mt-2">
-          A modular geometric pattern ideal for scarves or panels.
-        </p>
-        <a href="models/geometric-motif.pdf" download
-           class="mt-4 inline-block bg-pink-500 text-white px-4 py-2 rounded-xl shadow hover:bg-pink-600 transition">
-          Download PDF
-        </a>
-      </div>
-
-    </div>
-
   </main>
 
+  <script>
+    (function() {
+      var translations = {
+        en: {
+          "page.title": "Yarn 2 Yarn - Free Patterns",
+          "nav.home": "Home",
+          "nav.calculator": "Skein Calculator",
+          "nav.free_patterns": "Free Patterns",
+          "nav.buy": "Buy",
+          "nav.language": "Language",
+          "hero.kicker": "Free patterns",
+          "hero.title": "Generate and download",
+          "generator.title": "Custom sweater generator",
+          "generator.description": "2D preview only. Front, back, and sleeve all use the brown sleeve motif grid.",
+          "generator.shoulder": "Shoulder width (cm)",
+          "generator.chest": "Chest circumference (cm)",
+          "generator.bust_height": "Bust height (cm)",
+          "generator.arm_length": "Arm length (cm)",
+          "generator.fit": "Fit",
+          "generator.fit_slim": "Slim",
+          "generator.fit_straight": "Straight",
+          "generator.fit_loose": "Loose",
+          "generator.preview_title": "2D piece preview",
+          "generator.preview_aria": "Live preview of front, back and sleeve pieces",
+          "generator.generate": "Generate ZIP (.yy)",
+          "generator.ready": "Ready.",
+          "generator.note": "All exported pieces use the brown sleeve motif grid.",
+          "generator.license": "License: <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" target=\"_blank\" rel=\"noopener\" class=\"underline\">CC BY-SA 4.0</a> for downloaded sweater patterns.",
+          "footer.copy": "© Yarn 2 Yarn - Convert patterns and keep what you love.",
+          "error.shoulder_range": "Shoulder width must be between 32 and 70 cm.",
+          "error.chest_range": "Chest circumference must be between 70 and 180 cm.",
+          "error.bust_range": "Bust height must be between 45 and 95 cm.",
+          "error.arm_range": "Arm length must be between 35 and 85 cm.",
+          "error.fit_invalid": "Invalid fit option.",
+          "status.ready": "Ready.",
+          "status.generating": "Generating files...",
+          "status.jszip_missing": "Cannot generate ZIP right now (JSZip not loaded).",
+          "status.zip_done": "ZIP generated: {name}",
+          "status.zip_failed": "Generation failed: {message}",
+          "preview.title": "Live preview{clamp}",
+          "preview.clamp": " (chest adjusted)",
+          "preview.armhole_delta": "Armhole vs sleeve cap: {value} cm",
+          "preview.side_delta": "Side seam delta (back-front): {value} cm",
+          "preview.shoulder_delta": "Shoulder seam delta (back-front): {value} cm",
+          "preview.front": "Front",
+          "preview.back": "Back",
+          "preview.sleeve": "Sleeve",
+          "readme.title": "Custom sweater generated with Yarn 2 Yarn",
+          "readme.measurements": "Measurements:",
+          "readme.shoulder": "- Shoulder width: {value} cm",
+          "readme.chest": "- Chest circumference: {value} cm",
+          "readme.chest_used": "- Chest used for drafting: {value} cm",
+          "readme.chest_used_clamped": "- Chest used for drafting (clamped): {value} cm",
+          "readme.bust": "- Bust height: {value} cm",
+          "readme.arm": "- Arm length: {value} cm",
+          "readme.fit": "- Fit: {value}",
+          "readme.armhole": "- Armhole length: {value} cm",
+          "readme.sleeve_cap": "- Sleeve cap length: {value} cm",
+          "readme.pattern_note": "Pattern note:",
+          "readme.note_grid": "- Front, back, and sleeve use the brown motif grid from the provided sleeve template.",
+          "readme.note_match": "- Sleeve cap length is matched to front armhole + back armhole.",
+          "readme.note_license": "- License: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)."
+        },
+        fr: {
+          "page.title": "Yarn 2 Yarn - Patrons gratuits",
+          "nav.home": "Accueil",
+          "nav.calculator": "Calculateur de pelotes",
+          "nav.free_patterns": "Patrons gratuits",
+          "nav.buy": "Acheter",
+          "nav.language": "Langue",
+          "hero.kicker": "Patrons gratuits",
+          "hero.title": "Générez et téléchargez",
+          "generator.title": "Générateur de pull personnalisé",
+          "generator.description": "Aperçu 2D uniquement. L'avant, le dos et la manche utilisent la grille motif marron de la manche.",
+          "generator.shoulder": "Largeur d'épaules (cm)",
+          "generator.chest": "Tour de poitrine (cm)",
+          "generator.bust_height": "Hauteur de buste (cm)",
+          "generator.arm_length": "Longueur de bras (cm)",
+          "generator.fit": "Coupe",
+          "generator.fit_slim": "Près du corps",
+          "generator.fit_straight": "Droite",
+          "generator.fit_loose": "Large",
+          "generator.preview_title": "Aperçu 2D des pièces",
+          "generator.preview_aria": "Aperçu en direct des pièces avant, dos et manche",
+          "generator.generate": "Générer ZIP (.yy)",
+          "generator.ready": "Prêt.",
+          "generator.note": "Toutes les pièces exportées utilisent la grille motif marron de la manche.",
+          "generator.license": "Licence : <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" target=\"_blank\" rel=\"noopener\" class=\"underline\">CC BY-SA 4.0</a> pour les patrons téléchargés.",
+          "footer.copy": "© Yarn 2 Yarn - Convertissez des patrons et gardez ce que vous aimez.",
+          "error.shoulder_range": "La largeur d'épaules doit être entre 32 et 70 cm.",
+          "error.chest_range": "Le tour de poitrine doit être entre 70 et 180 cm.",
+          "error.bust_range": "La hauteur de buste doit être entre 45 et 95 cm.",
+          "error.arm_range": "La longueur de bras doit être entre 35 et 85 cm.",
+          "error.fit_invalid": "Option de coupe invalide.",
+          "status.ready": "Prêt.",
+          "status.generating": "Génération des fichiers...",
+          "status.jszip_missing": "Impossible de générer le ZIP pour le moment (JSZip non chargé).",
+          "status.zip_done": "ZIP généré : {name}",
+          "status.zip_failed": "Échec de génération : {message}",
+          "preview.title": "Aperçu en direct{clamp}",
+          "preview.clamp": " (poitrine ajustée)",
+          "preview.armhole_delta": "Emmanchure vs tête de manche : {value} cm",
+          "preview.side_delta": "Écart couture côté (dos-avant) : {value} cm",
+          "preview.shoulder_delta": "Écart couture épaule (dos-avant) : {value} cm",
+          "preview.front": "Avant",
+          "preview.back": "Dos",
+          "preview.sleeve": "Manche",
+          "readme.title": "Pull personnalisé généré avec Yarn 2 Yarn",
+          "readme.measurements": "Mesures :",
+          "readme.shoulder": "- Largeur d'épaules : {value} cm",
+          "readme.chest": "- Tour de poitrine : {value} cm",
+          "readme.chest_used": "- Poitrine utilisée pour le patronage : {value} cm",
+          "readme.chest_used_clamped": "- Poitrine utilisée pour le patronage (ajustée) : {value} cm",
+          "readme.bust": "- Hauteur de buste : {value} cm",
+          "readme.arm": "- Longueur de bras : {value} cm",
+          "readme.fit": "- Coupe : {value}",
+          "readme.armhole": "- Longueur emmanchure : {value} cm",
+          "readme.sleeve_cap": "- Longueur tête de manche : {value} cm",
+          "readme.pattern_note": "Note patron :",
+          "readme.note_grid": "- L'avant, le dos et la manche utilisent la grille motif marron issue du patron de manche fourni.",
+          "readme.note_match": "- La longueur de tête de manche est alignée sur avant emmanchure + dos emmanchure.",
+          "readme.note_license": "- Licence : CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)."
+        }
+      };
+
+      var currentLang = ((navigator.language || "").toLowerCase().indexOf("fr") === 0 ? "fr" : "en");
+
+      function interpolate(text, vars) {
+        if (!vars) return text;
+        return text.replace(/\{(\w+)\}/g, function(_, key) {
+          return vars[key] !== undefined ? String(vars[key]) : "";
+        });
+      }
+
+      function t(key, vars) {
+        var raw = (translations[currentLang] && translations[currentLang][key]) || (translations.en && translations.en[key]) || key;
+        return interpolate(raw, vars);
+      }
+
+      function apply() {
+        document.documentElement.lang = currentLang;
+        document.title = t("page.title");
+        document.querySelectorAll("[data-i18n]").forEach(function(node) {
+          node.textContent = t(node.getAttribute("data-i18n"));
+        });
+        document.querySelectorAll("[data-i18n-html]").forEach(function(node) {
+          node.innerHTML = t(node.getAttribute("data-i18n-html"));
+        });
+        document.querySelectorAll("[data-i18n-aria]").forEach(function(node) {
+          node.setAttribute("aria-label", t(node.getAttribute("data-i18n-aria")));
+        });
+        var select = document.getElementById("lang-select");
+        if (select) select.value = currentLang;
+      }
+
+      function setLang(lang) {
+        currentLang = lang === "fr" ? "fr" : "en";
+        apply();
+        if (typeof window.onY2YLangChange === "function") window.onY2YLangChange(currentLang);
+      }
+
+      var langSelect = document.getElementById("lang-select");
+      if (langSelect) {
+        langSelect.addEventListener("change", function() {
+          setLang(langSelect.value);
+        });
+      }
+
+      apply();
+      window.y2yI18n = {
+        t: t,
+        getLang: function() { return currentLang; },
+        setLang: setLang,
+        apply: apply
+      };
+    })();
+  </script>
+  <script>
+    (function() {
+      var i18n = window.y2yI18n || { t: function(key){ return key; } };
+      function t(key, vars) { return i18n.t(key, vars); }
+
+      var customShoulder = document.getElementById('custom-shoulder');
+      var customChest = document.getElementById('custom-chest');
+      var customBustHeight = document.getElementById('custom-bust-height');
+      var customArmLength = document.getElementById('custom-arm-length');
+      var customFit = document.getElementById('custom-fit');
+      var customGenerate = document.getElementById('custom-generate');
+      var customStatus = document.getElementById('custom-status');
+      var previewSvg = document.getElementById('custom-preview');
+
+      var STITCH_CM = 0.3333;
+      var ROW_CM = 0.25;
+      var FRONT_META = { underarmIndex: 3, shoulderIndex: 18 };
+      var BACK_META = { underarmIndex: 3, shoulderIndex: 16 };
+      var fitConfig = {
+        slim: { chestEase: 4.0, sleeveEase: 4.0, capEase: 0.3, minBodyOffset: 1.7, sleeveCuffFactor: 0.56, sideCurve: -0.6, armShiftX: -0.55, armShiftY: -0.7, neckOpen: -0.25 },
+        straight: { chestEase: 9.0, sleeveEase: 6.0, capEase: 0.8, minBodyOffset: 2.4, sleeveCuffFactor: 0.62, sideCurve: 0.0, armShiftX: 0.0, armShiftY: 0.0, neckOpen: 0.0 },
+        loose: { chestEase: 14.0, sleeveEase: 9.0, capEase: 1.3, minBodyOffset: 3.2, sleeveCuffFactor: 0.68, sideCurve: 0.9, armShiftX: 0.65, armShiftY: 0.9, neckOpen: 0.35 }
+      };
+
+      var FRONT_TEMPLATE = {"points":[[0.0,1.0],[1.0,1.0],[1.0,0.8857142857142857],[1.0,0.3464285714285714],[0.9358974358974359,0.3392857142857143],[0.8846153846153846,0.33214285714285713],[0.8461538461538461,0.325],[0.8205128205128205,0.31785714285714284],[0.7948717948717948,0.3107142857142857],[0.782051282051282,0.30357142857142855],[0.7692307692307693,0.29642857142857143],[0.7692307692307693,0.23214285714285715],[0.782051282051282,0.20714285714285716],[0.7948717948717948,0.18214285714285713],[0.8076923076923077,0.15714285714285714],[0.8205128205128205,0.13214285714285715],[0.8333333333333334,0.10714285714285714],[0.8461538461538461,0.08214285714285714],[0.8461538461538461,0.05714285714285714],[0.6794871794871795,0.03214285714285714],[0.4166666666666667,0.0],[0.0,0.3357142857142857]],"filled":true,"cols":78,"rows":280,"phys_w":26.0,"phys_h":70.0};
+      var BACK_TEMPLATE = {"points":[[0.0,1.0],[1.0,1.0],[1.0,0.8840579710144928],[1.0,0.34782608695652173],[0.9444444444444443,0.34057971014492755],[0.9027777777777778,0.3333333333333333],[0.875,0.32608695652173914],[0.8472222222222222,0.3188405797101449],[0.8333333333333334,0.3115942028985507],[0.8333333333333334,0.2246376811594203],[0.8472222222222222,0.19927536231884058],[0.8611111111111112,0.17391304347826086],[0.875,0.14855072463768115],[0.8888888888888888,0.12318840579710146],[0.9027777777777778,0.09782608695652174],[0.9166666666666666,0.07246376811594203],[0.9166666666666666,0.057971014492753624],[0.8611111111111112,0.050724637681159424],[0.8055555555555557,0.043478260869565216],[0.75,0.036231884057971016],[0.6944444444444443,0.028985507246376812],[0.625,0.021739130434782608],[0.5555555555555556,0.014492753623188406],[0.4861111111111111,0.007246376811594203],[0.4166666666666667,0.0],[0.2777777777777778,0.014492753623188406],[0.1388888888888889,0.021739130434782608],[0.0,0.021739130434782608]],"filled":true,"cols":72,"rows":276,"phys_w":24.0,"phys_h":69.0};
+      var SLEEVE_TEMPLATE = {"points":[[0.0,1.0],[0.7368421052631579,1.0],[1.0,0.234375],[0.9473684210526315,0.2265625],[0.9122807017543859,0.21875],[0.8771929824561403,0.2109375],[0.8421052631578947,0.203125],[0.8070175438596491,0.1953125],[0.7719298245614035,0.1875],[0.7368421052631579,0.1796875],[0.7017543859649122,0.171875],[0.6842105263157895,0.1640625],[0.6666666666666666,0.15625],[0.6491228070175439,0.1484375],[0.631578947368421,0.140625],[0.6140350877192983,0.1328125],[0.5964912280701754,0.125],[0.5789473684210527,0.1171875],[0.5614035087719298,0.109375],[0.543859649122807,0.1015625],[0.5263157894736842,0.09375],[0.5087719298245614,0.0859375],[0.49122807017543857,0.078125],[0.47368421052631576,0.0703125],[0.45614035087719296,0.0625],[0.43859649122807015,0.0546875],[0.42105263157894735,0.046875],[0.40350877192982454,0.0390625],[0.38596491228070173,0.03125],[0.3684210526315789,0.0234375],[0.3333333333333333,0.015625],[0.2807017543859649,0.0078125],[0.21052631578947367,0.0],[0.0,0.0]],"filled":true,"cols":57,"rows":256,"phys_w":19.0,"phys_h":64.0,"grid":{"cols":17,"rows":10,"cells":{"0,0":"#b69676","1,0":"#b69676","2,0":"#942e00","3,0":"#942e00","4,0":"#942e00","5,0":"#942e00","6,0":"#5c1214","7,0":"#5c1214","8,0":"#942e00","9,0":"#5c1214","10,0":"#5c1214","11,0":"#942e00","12,0":"#942e00","13,0":"#942e00","14,0":"#942e00","15,0":"#b69676","16,0":"#b69676","0,1":"#942e00","1,1":"#b69676","2,1":"#b69676","3,1":"#942e00","4,1":"#942e00","5,1":"#942e00","6,1":"#5c1214","7,1":"#5c1214","8,1":"#5c1214","9,1":"#5c1214","10,1":"#5c1214","11,1":"#942e00","12,1":"#942e00","13,1":"#942e00","14,1":"#b69676","15,1":"#b69676","16,1":"#942e00","0,2":"#942e00","1,2":"#942e00","2,2":"#b69676","3,2":"#b69676","4,2":"#942e00","5,2":"#942e00","6,2":"#942e00","7,2":"#5c1214","8,2":"#5c1214","9,2":"#5c1214","10,2":"#942e00","11,2":"#942e00","12,2":"#942e00","13,2":"#b69676","14,2":"#b69676","15,2":"#942e00","16,2":"#942e00","0,3":"#942e00","1,3":"#942e00","2,3":"#942e00","3,3":"#b69676","4,3":"#b69676","5,3":"#942e00","6,3":"#942e00","7,3":"#942e00","8,3":"#5c1214","9,3":"#942e00","10,3":"#942e00","11,3":"#942e00","12,3":"#b69676","13,3":"#b69676","14,3":"#942e00","15,3":"#942e00","16,3":"#942e00","0,4":"#942e00","1,4":"#942e00","2,4":"#942e00","3,4":"#942e00","4,4":"#b69676","5,4":"#b69676","6,4":"#942e00","7,4":"#942e00","8,4":"#942e00","9,4":"#942e00","10,4":"#942e00","11,4":"#b69676","12,4":"#b69676","13,4":"#942e00","14,4":"#942e00","15,4":"#942e00","16,4":"#942e00","0,5":"#942e00","1,5":"#942e00","2,5":"#942e00","3,5":"#942e00","4,5":"#942e00","5,5":"#b69676","6,5":"#b69676","7,5":"#942e00","8,5":"#942e00","9,5":"#942e00","10,5":"#b69676","11,5":"#b69676","12,5":"#942e00","13,5":"#942e00","14,5":"#942e00","15,5":"#942e00","16,5":"#942e00","0,6":"#942e00","1,6":"#942e00","2,6":"#942e00","3,6":"#942e00","4,6":"#942e00","5,6":"#942e00","6,6":"#b69676","7,6":"#b69676","8,6":"#942e00","9,6":"#b69676","10,6":"#b69676","11,6":"#942e00","12,6":"#942e00","13,6":"#942e00","14,6":"#942e00","15,6":"#942e00","16,6":"#942e00","0,7":"#942e00","1,7":"#942e00","2,7":"#942e00","3,7":"#942e00","4,7":"#942e00","5,7":"#942e00","6,7":"#942e00","7,7":"#b69676","8,7":"#b69676","9,7":"#b69676","10,7":"#942e00","11,7":"#942e00","12,7":"#942e00","13,7":"#942e00","14,7":"#942e00","15,7":"#942e00","16,7":"#942e00","0,8":"#942e00","1,8":"#942e00","2,8":"#942e00","3,8":"#942e00","4,8":"#942e00","5,8":"#942e00","6,8":"#942e00","7,8":"#942e00","8,8":"#942e00","9,8":"#942e00","10,8":"#942e00","11,8":"#942e00","12,8":"#942e00","13,8":"#942e00","14,8":"#942e00","15,8":"#942e00","16,8":"#942e00","0,9":"#b69676","1,9":"#942e00","2,9":"#942e00","3,9":"#942e00","4,9":"#942e00","5,9":"#942e00","6,9":"#942e00","7,9":"#942e00","8,9":"#942e00","9,9":"#942e00","10,9":"#942e00","11,9":"#942e00","12,9":"#942e00","13,9":"#942e00","14,9":"#942e00","15,9":"#942e00","16,9":"#b69676"}}};
+
+      function deepClone(obj) {
+        return JSON.parse(JSON.stringify(obj));
+      }
+
+      var MOTIF_GRID = deepClone(SLEEVE_TEMPLATE.grid);
+
+      function setStatus(message, isError) {
+        customStatus.textContent = message;
+        customStatus.className = isError ? 'text-xs text-red-600' : 'text-xs text-pink-500';
+      }
+
+      function toCmPoints(piece) {
+        return piece.points.map(function(p) {
+          return [p[0] * piece.phys_w, p[1] * piece.phys_h];
+        });
+      }
+
+      function toRelPoints(pointsCm, physW, physH) {
+        return pointsCm.map(function(p) {
+          var rx = physW <= 0 ? 0 : p[0] / physW;
+          var ry = physH <= 0 ? 0 : p[1] / physH;
+          return [Math.max(0, Math.min(1, rx)), Math.max(0, Math.min(1, ry))];
+        });
+      }
+
+      function dist(a, b) {
+        return Math.hypot(b[0] - a[0], b[1] - a[1]);
+      }
+
+      function polylineLength(points, start, end) {
+        var s = safeIndex(points, start);
+        var e = safeIndex(points, end);
+        if (s > e) {
+          var tmp = s;
+          s = e;
+          e = tmp;
+        }
+        var total = 0;
+        for (var i = s; i < e; i++) total += dist(points[i], points[i + 1]);
+        return total;
+      }
+
+      function safeIndex(points, idx) {
+        if (!points || points.length === 0) return 0;
+        if (idx < 0) return 0;
+        if (idx >= points.length) return points.length - 1;
+        return idx;
+      }
+
+      function clamp(v, min, max) {
+        return Math.max(min, Math.min(max, v));
+      }
+
+      function lerp(a, b, t) {
+        return a + (b - a) * t;
+      }
+
+      function seamPath(points, start, end, mapPoint) {
+        if (!points || points.length === 0) return '';
+        var s = safeIndex(points, start);
+        var e = safeIndex(points, end);
+        if (s > e) {
+          var tmp = s;
+          s = e;
+          e = tmp;
+        }
+        var d = '';
+        for (var i = s; i <= e; i++) {
+          var p = mapPoint(points[i]);
+          d += (i === s ? 'M ' : ' L ') + p[0].toFixed(2) + ' ' + p[1].toFixed(2);
+        }
+        return d;
+      }
+
+      function simplifyCollinearPoints(points, eps) {
+        if (!Array.isArray(points) || points.length <= 3) return points ? points.slice() : [];
+        var tolerance = Number.isFinite(eps) ? eps : 0.03;
+        var out = points.map(function(p) { return [p[0], p[1]]; });
+
+        function dist(a, b) {
+          return Math.hypot((b[0] - a[0]), (b[1] - a[1]));
+        }
+
+        function pointLineDistance(p, a, b) {
+          var dx = b[0] - a[0];
+          var dy = b[1] - a[1];
+          var len = Math.hypot(dx, dy);
+          if (len < 1e-9) return Math.hypot(p[0] - a[0], p[1] - a[1]);
+          return Math.abs((dx * (a[1] - p[1])) - ((a[0] - p[0]) * dy)) / len;
+        }
+
+        var changed = true;
+        while (changed && out.length > 3) {
+          changed = false;
+          for (var i = 0; i < out.length; i++) {
+            var prevIdx = (i - 1 + out.length) % out.length;
+            var nextIdx = (i + 1) % out.length;
+            var a = out[prevIdx];
+            var b = out[i];
+            var c = out[nextIdx];
+
+            var abLen = dist(a, b);
+            var bcLen = dist(b, c);
+            if (abLen <= tolerance * 0.25 || bcLen <= tolerance * 0.25) {
+              out.splice(i, 1);
+              changed = true;
+              break;
+            }
+
+            var acx = c[0] - a[0];
+            var acy = c[1] - a[1];
+            var ac2 = (acx * acx) + (acy * acy);
+            if (ac2 < 1e-12) {
+              out.splice(i, 1);
+              changed = true;
+              break;
+            }
+
+            var t = (((b[0] - a[0]) * acx) + ((b[1] - a[1]) * acy)) / ac2;
+            var d = pointLineDistance(b, a, c);
+            var ux = b[0] - a[0];
+            var uy = b[1] - a[1];
+            var vx = c[0] - b[0];
+            var vy = c[1] - b[1];
+            var uvLen = Math.max(1e-9, Math.hypot(ux, uy) * Math.hypot(vx, vy));
+            var crossNorm = Math.abs((ux * vy) - (uy * vx)) / uvLen;
+            var dotNorm = ((ux * vx) + (uy * vy)) / uvLen;
+
+            if (d <= tolerance && t >= -0.001 && t <= 1.001 && crossNorm <= 0.02 && dotNorm >= 0.995) {
+              out.splice(i, 1);
+              changed = true;
+              break;
+            }
+          }
+        }
+        return out;
+      }
+
+      function detectShoulderEndIndex(points, shoulderStart) {
+        var s = safeIndex(points, shoulderStart);
+        if (!points || points.length < 2) return s;
+        var end = safeIndex(points, s + 1);
+        var minY = points[end][1];
+        var prevY = points[end][1];
+        for (var i = s + 1; i < points.length; i++) {
+          var p = points[i];
+          if (p[1] < minY - 1e-6) {
+            minY = p[1];
+            end = i;
+          }
+          if (i > (s + 1) && p[1] > (prevY + 0.8)) break;
+          if (i > (s + 1) && p[0] <= 1e-6) break;
+          prevY = p[1];
+        }
+        return safeIndex(points, end);
+      }
+
+      function makeWarpedBody(template, meta, target) {
+        var fit = fitConfig[target.fitKey] || fitConfig.straight;
+        var points = toCmPoints(template);
+        var centerLocked = points.map(function(p) { return p[0] <= 1e-6; });
+        var armShiftXTune = Number.isFinite(target.armholeTuneX) ? target.armholeTuneX : 0;
+        var armShiftYTune = Number.isFinite(target.armholeTuneY) ? target.armholeTuneY : 0;
+        var underarmIndex = meta.underarmIndex;
+        var shoulderIndex = meta.shoulderIndex;
+
+        var shoulderBaseX = points[shoulderIndex][0];
+        var shoulderY = points[shoulderIndex][1];
+        var underarmY = points[underarmIndex][1];
+
+        var shoulderScale = target.shoulderHalf / Math.max(1e-6, shoulderBaseX);
+        var bodyScale = target.bodyHalf / template.phys_w;
+        var yScale = target.height / template.phys_h;
+
+        var warped = points.map(function(p) {
+          var y = p[1];
+          var t = 0;
+          if (y <= shoulderY) t = 0;
+          else if (y >= underarmY) t = 1;
+          else t = (y - shoulderY) / Math.max(1e-6, underarmY - shoulderY);
+          var scaleX = lerp(shoulderScale, bodyScale, t);
+          return [p[0] * scaleX, p[1] * yScale];
+        });
+
+        for (var i = underarmIndex; i <= shoulderIndex; i++) {
+          var tArm = (i - underarmIndex) / Math.max(1, shoulderIndex - underarmIndex);
+          var arc = Math.sin(Math.PI * tArm);
+          warped[i][0] += (fit.armShiftX + armShiftXTune) * arc;
+          warped[i][1] += (fit.armShiftY + armShiftYTune) * (1 - tArm) * 0.85;
+        }
+
+        for (var n = shoulderIndex + 1; n < warped.length; n++) {
+          if (warped[n][1] > (shoulderY * yScale) + 8) continue;
+          if (centerLocked[n]) {
+            warped[n][0] = 0;
+            continue;
+          }
+          var neckWeight = Math.max(0, 1 - (warped[n][0] / Math.max(1, warped[shoulderIndex][0])));
+          warped[n][0] += fit.neckOpen * neckWeight;
+        }
+
+        var sideBottom = warped[2];
+        var sideUnderarm = warped[underarmIndex];
+        var sideA = [lerp(sideBottom[0], sideUnderarm[0], 0.34), lerp(sideBottom[1], sideUnderarm[1], 0.34)];
+        var sideB = [lerp(sideBottom[0], sideUnderarm[0], 0.68), lerp(sideBottom[1], sideUnderarm[1], 0.68)];
+        sideA[0] += fit.sideCurve * Math.sin(Math.PI * 0.34);
+        sideB[0] += fit.sideCurve * Math.sin(Math.PI * 0.68);
+        warped.splice(underarmIndex, 0, sideA, sideB);
+        centerLocked.splice(underarmIndex, 0, false, false);
+        underarmIndex += 2;
+        shoulderIndex += 2;
+
+        var maxX = target.bodyHalf;
+        for (var j = 0; j < warped.length; j++) {
+          if (centerLocked[j]) warped[j][0] = 0;
+          warped[j][0] = Math.max(0, warped[j][0]);
+          warped[j][1] = clamp(warped[j][1], 0, target.height);
+          if (warped[j][0] > maxX) maxX = warped[j][0];
+        }
+
+        var physW = maxX;
+        var physH = target.height;
+
+        var shoulderEndIndex = detectShoulderEndIndex(warped, shoulderIndex);
+
+        return {
+          piece: {
+            points: toRelPoints(simplifyCollinearPoints(warped, 0.03), physW, physH),
+            filled: true,
+            cols: Math.max(1, Math.round(physW / STITCH_CM)),
+            rows: Math.max(1, Math.round(physH / ROW_CM)),
+            phys_w: Number(physW.toFixed(4)),
+            phys_h: Number(physH.toFixed(4)),
+            grid: deepClone(MOTIF_GRID)
+          },
+          pointsCm: warped,
+          underarmIndex: underarmIndex,
+          shoulderIndex: shoulderIndex,
+          shoulderEndIndex: shoulderEndIndex,
+          armholeLength: polylineLength(warped, underarmIndex, shoulderIndex)
+        };
+      }
+
+      function makeSleeveFromTemplate(params) {
+        var fit = fitConfig[params.fitKey] || fitConfig.straight;
+        var base = toCmPoints(SLEEVE_TEMPLATE);
+        var templateHeight = SLEEVE_TEMPLATE.phys_h;
+        // Keep the original 44 cm sleeve as baseline and scale mostly by shoulder width.
+        // This aligns with common knit grading where upper-arm width tracks shoulder size.
+        var fitWidthScale = params.fitKey === 'slim' ? 0.94 : (params.fitKey === 'loose' ? 1.08 : 1.0);
+        var xScale = (params.shoulderWidth / 44.0) * fitWidthScale;
+        xScale = clamp(xScale, 0.82, 1.28);
+        var totalHeight = Math.max(38, params.armLength + (params.fitKey === 'loose' ? 7.0 : 6.0));
+
+        // Arm length affects only the lower sleeve segment (from underarm to cuff).
+        // The cap region at the top keeps the original template geometry.
+        var capBaseY = base[2][1];
+        var baseLowerLen = Math.max(1e-6, templateHeight - capBaseY);
+        var targetLowerLen = Math.max(8.0, totalHeight - capBaseY);
+        var lowerScale = targetLowerLen / baseLowerLen;
+
+        var pointsCm = base.map(function(p) {
+          var y = p[1];
+          if (y > capBaseY) {
+            y = capBaseY + ((y - capBaseY) * lowerScale);
+          }
+          return [p[0] * xScale, y];
+        });
+
+        for (var i = 0; i < pointsCm.length; i++) {
+          if (base[i][0] <= 1e-6) pointsCm[i][0] = 0;
+        }
+
+        var straightCuffFactor = fitConfig.straight.sleeveCuffFactor;
+        var cuffScale = fit.sleeveCuffFactor / Math.max(1e-6, straightCuffFactor);
+        pointsCm[1][0] *= cuffScale;
+        pointsCm[0][0] = 0;
+        pointsCm[0][1] = totalHeight;
+        pointsCm[1][1] = totalHeight;
+
+        var maxX = 0;
+        for (var i2 = 0; i2 < pointsCm.length; i2++) if (pointsCm[i2][0] > maxX) maxX = pointsCm[i2][0];
+
+        var physW = maxX;
+        var physH = totalHeight;
+        // Sleeve file stores half-sleeve only. Cap length must use top curve and be doubled.
+        var capHalfLen = polylineLength(pointsCm, 2, pointsCm.length - 1);
+
+        return {
+          piece: {
+            points: toRelPoints(simplifyCollinearPoints(pointsCm, 0.03), physW, physH),
+            filled: true,
+            cols: Math.max(1, Math.round(physW / STITCH_CM)),
+            rows: Math.max(1, Math.round(physH / ROW_CM)),
+            phys_w: Number(physW.toFixed(4)),
+            phys_h: Number(physH.toFixed(4)),
+            grid: deepClone(SLEEVE_TEMPLATE.grid)
+          },
+          pointsCm: pointsCm,
+          capLength: capHalfLen * 2
+        };
+      }
+
+      function rebuildDraftPieceFromPoints(draft) {
+        var physH = draft.piece.phys_h;
+        var maxX = 0;
+        for (var i = 0; i < draft.pointsCm.length; i++) {
+          draft.pointsCm[i][0] = Math.max(0, draft.pointsCm[i][0]);
+          draft.pointsCm[i][1] = clamp(draft.pointsCm[i][1], 0, physH);
+          if (draft.pointsCm[i][0] > maxX) maxX = draft.pointsCm[i][0];
+        }
+        var physW = Math.max(0.01, maxX);
+        draft.piece.points = toRelPoints(simplifyCollinearPoints(draft.pointsCm, 0.03), physW, physH);
+        draft.piece.cols = Math.max(1, Math.round(physW / STITCH_CM));
+        draft.piece.rows = Math.max(1, Math.round(physH / ROW_CM));
+        draft.piece.phys_w = Number(physW.toFixed(4));
+        draft.piece.phys_h = Number(physH.toFixed(4));
+      }
+
+      function forceShoulderGapZero(frontDraft, backDraft) {
+        var frontShoulderStart = safeIndex(frontDraft.pointsCm, frontDraft.shoulderIndex);
+        var frontShoulderEnd = safeIndex(frontDraft.pointsCm, frontDraft.shoulderEndIndex !== undefined ? frontDraft.shoulderEndIndex : (frontDraft.shoulderIndex + 1));
+        var backShoulderStart = safeIndex(backDraft.pointsCm, backDraft.shoulderIndex);
+        var backShoulderEnd = safeIndex(backDraft.pointsCm, backDraft.shoulderEndIndex !== undefined ? backDraft.shoulderEndIndex : (backDraft.shoulderIndex + 1));
+
+        var frontLen = polylineLength(frontDraft.pointsCm, frontShoulderStart, frontShoulderEnd);
+        var backLen = polylineLength(backDraft.pointsCm, backShoulderStart, backShoulderEnd);
+        if (!(frontLen > 1e-6) || !(backLen > 1e-6)) return;
+
+        var scale = frontLen / backLen;
+        var s = backShoulderStart;
+        var e = backShoulderEnd;
+        if (s > e) {
+          var tmp = s;
+          s = e;
+          e = tmp;
+        }
+        if (e <= s) return;
+
+        var original = backDraft.pointsCm.map(function(p) { return [p[0], p[1]]; });
+        backDraft.pointsCm[s] = [original[s][0], original[s][1]];
+        for (var i = s; i < e; i++) {
+          var segX = original[i + 1][0] - original[i][0];
+          var segY = original[i + 1][1] - original[i][1];
+          var prev = backDraft.pointsCm[i];
+          backDraft.pointsCm[i + 1] = [
+            prev[0] + (segX * scale),
+            prev[1] + (segY * scale)
+          ];
+        }
+
+        rebuildDraftPieceFromPoints(backDraft);
+        backDraft.shoulderEndIndex = detectShoulderEndIndex(backDraft.pointsCm, backDraft.shoulderIndex);
+      }
+
+      function validateNumber(value, min, max) {
+        return Number.isFinite(value) && value >= min && value <= max;
+      }
+
+      function getCustomInputs() {
+        return {
+          shoulderWidth: parseFloat(customShoulder.value),
+          chestCirc: parseFloat(customChest.value),
+          bustHeight: parseFloat(customBustHeight.value),
+          armLength: parseFloat(customArmLength.value),
+          fitKey: customFit.value
+        };
+      }
+
+      function validateCustomInputs(inputs) {
+        if (!validateNumber(inputs.shoulderWidth, 32, 70)) return t('error.shoulder_range');
+        if (!validateNumber(inputs.chestCirc, 70, 180)) return t('error.chest_range');
+        if (!validateNumber(inputs.bustHeight, 45, 95)) return t('error.bust_range');
+        if (!validateNumber(inputs.armLength, 35, 85)) return t('error.arm_range');
+        if (!fitConfig[inputs.fitKey]) return t('error.fit_invalid');
+        return '';
+      }
+
+      function computeCustomDrafts() {
+        var inputs = getCustomInputs();
+        var validationError = validateCustomInputs(inputs);
+        if (validationError) throw new Error(validationError);
+
+        var fit = fitConfig[inputs.fitKey];
+        var shoulderHalf = inputs.shoulderWidth / 2;
+        var minChest = inputs.shoulderWidth * 1.85;
+        var maxChest = inputs.shoulderWidth * 2.95;
+        var adjustedChest = clamp(inputs.chestCirc, minChest, maxChest);
+        var chestWasClamped = Math.abs(adjustedChest - inputs.chestCirc) > 0.01;
+
+        var bodyHalf = (adjustedChest + fit.chestEase) / 4;
+        bodyHalf = Math.max(bodyHalf, shoulderHalf + fit.minBodyOffset);
+
+        var sleeveDraft = makeSleeveFromTemplate({
+          armLength: inputs.armLength,
+          shoulderWidth: inputs.shoulderWidth,
+          chestCirc: adjustedChest,
+          bodyHalf: bodyHalf,
+          fitKey: inputs.fitKey
+        });
+
+        function buildDraftPair(armholeTuneX) {
+          var front = makeWarpedBody(FRONT_TEMPLATE, FRONT_META, {
+            shoulderHalf: shoulderHalf,
+            bodyHalf: bodyHalf,
+            height: inputs.bustHeight,
+            fitKey: inputs.fitKey,
+            armholeTuneX: armholeTuneX
+          });
+          var back = makeWarpedBody(BACK_TEMPLATE, BACK_META, {
+            shoulderHalf: shoulderHalf,
+            bodyHalf: bodyHalf,
+            height: inputs.bustHeight + 0.6,
+            fitKey: inputs.fitKey,
+            armholeTuneX: armholeTuneX
+          });
+          return {
+            frontDraft: front,
+            backDraft: back,
+            armholeTotal: front.armholeLength + back.armholeLength
+          };
+        }
+
+        var targetArmholeTotal = sleeveDraft.capLength;
+        var bestPair = buildDraftPair(0);
+        var bestErr = Math.abs(bestPair.armholeTotal - targetArmholeTotal);
+        var loTune = -6.0;
+        var hiTune = 2.0;
+        for (var tuneIter = 0; tuneIter < 28; tuneIter++) {
+          var midTune = (loTune + hiTune) / 2;
+          var pair = buildDraftPair(midTune);
+          var err = Math.abs(pair.armholeTotal - targetArmholeTotal);
+          if (err < bestErr) {
+            bestErr = err;
+            bestPair = pair;
+          }
+          if (pair.armholeTotal < targetArmholeTotal) hiTune = midTune;
+          else loTune = midTune;
+        }
+
+        var frontDraft = bestPair.frontDraft;
+        var backDraft = bestPair.backDraft;
+        var armholeTotal = bestPair.armholeTotal;
+
+        // Rebuild both pieces so collinear cleanup is applied symmetrically.
+        rebuildDraftPieceFromPoints(frontDraft);
+        frontDraft.shoulderEndIndex = detectShoulderEndIndex(frontDraft.pointsCm, frontDraft.shoulderIndex);
+
+        // Keep shoulder seam mismatch at 0 (same seam length as the original baseline intent).
+        forceShoulderGapZero(frontDraft, backDraft);
+        armholeTotal = frontDraft.armholeLength + backDraft.armholeLength;
+
+        var frontSideLen = polylineLength(frontDraft.pointsCm, 1, frontDraft.underarmIndex);
+        var backSideLen = polylineLength(backDraft.pointsCm, 1, backDraft.underarmIndex);
+        var frontShoulderEnd = safeIndex(frontDraft.pointsCm, frontDraft.shoulderEndIndex !== undefined ? frontDraft.shoulderEndIndex : (frontDraft.shoulderIndex + 1));
+        var backShoulderEnd = safeIndex(backDraft.pointsCm, backDraft.shoulderEndIndex !== undefined ? backDraft.shoulderEndIndex : (backDraft.shoulderIndex + 1));
+
+        var seamChecks = {
+          armholeDelta: sleeveDraft.capLength - armholeTotal,
+          sideDelta: backSideLen - frontSideLen,
+          shoulderDelta: dist(backDraft.pointsCm[backDraft.shoulderIndex], backDraft.pointsCm[backShoulderEnd]) - dist(frontDraft.pointsCm[frontDraft.shoulderIndex], frontDraft.pointsCm[frontShoulderEnd])
+        };
+
+        return {
+          shoulderWidth: inputs.shoulderWidth,
+          chestCirc: inputs.chestCirc,
+          adjustedChest: adjustedChest,
+          chestWasClamped: chestWasClamped,
+          bustHeight: inputs.bustHeight,
+          armLength: inputs.armLength,
+          fitKey: inputs.fitKey,
+          armholeTotal: armholeTotal,
+          frontDraft: frontDraft,
+          backDraft: backDraft,
+          sleeveDraft: sleeveDraft,
+          seamChecks: seamChecks
+        };
+      }
+
+      function pointToString(p) {
+        return p[0].toFixed(2) + ',' + p[1].toFixed(2);
+      }
+
+      function pointsToSvg(points, mapPoint) {
+        return points.map(function(p) {
+          var pt = mapPoint(p);
+          return pointToString(pt);
+        }).join(' ');
+      }
+
+      function renderPreviewMessage(message) {
+        previewSvg.innerHTML =
+          '<rect x="0" y="0" width="880" height="360" fill="#fff7fb"></rect>' +
+          '<text x="22" y="48" fill="#dc2626" font-size="14" font-family="Comic Neue">' + message.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</text>';
+      }
+
+      function renderCustomPreview(data) {
+        var vbWidth = 880;
+        var vbHeight = 360;
+        var pad = 26;
+        var gap = 28;
+        var frontW = data.frontDraft.piece.phys_w;
+        var frontH = data.frontDraft.piece.phys_h;
+        var backW = data.backDraft.piece.phys_w;
+        var backH = data.backDraft.piece.phys_h;
+        var sleeveW = data.sleeveDraft.piece.phys_w;
+        var sleeveH = data.sleeveDraft.piece.phys_h;
+
+        var maxH = Math.max(frontH, backH, sleeveH);
+        var innerW = vbWidth - (2 * pad);
+        var innerH = vbHeight - (2 * pad) - 26;
+        var totalW = (2 * frontW) + (2 * backW) + (2 * sleeveW);
+        var scale = Math.min((innerW - 2 * gap) / totalW, innerH / maxH);
+        scale = Math.max(2.1, scale);
+
+        var drawW = (totalW * scale) + (2 * gap);
+        var x0 = (vbWidth - drawW) / 2;
+        var baselineY = pad + (maxH * scale);
+
+        var frontCenter = x0 + (frontW * scale);
+        var backCenter = frontCenter + (frontW * scale) + gap + (backW * scale);
+        var sleeveCenter = backCenter + (backW * scale) + gap + (sleeveW * scale);
+
+        var frontY = baselineY - (frontH * scale);
+        var backY = baselineY - (backH * scale);
+        var sleeveY = baselineY - (sleeveH * scale);
+
+        function mapRight(centerX, baseY) {
+          return function(p) { return [centerX + (p[0] * scale), baseY + (p[1] * scale)]; };
+        }
+        function mapLeft(centerX, baseY) {
+          return function(p) { return [centerX - (p[0] * scale), baseY + (p[1] * scale)]; };
+        }
+
+        var frontRight = pointsToSvg(data.frontDraft.pointsCm, mapRight(frontCenter, frontY));
+        var frontLeft = pointsToSvg(data.frontDraft.pointsCm, mapLeft(frontCenter, frontY));
+        var backRight = pointsToSvg(data.backDraft.pointsCm, mapRight(backCenter, backY));
+        var backLeft = pointsToSvg(data.backDraft.pointsCm, mapLeft(backCenter, backY));
+        var sleeveRight = pointsToSvg(data.sleeveDraft.pointsCm, mapRight(sleeveCenter, sleeveY));
+        var sleeveLeft = pointsToSvg(data.sleeveDraft.pointsCm, mapLeft(sleeveCenter, sleeveY));
+
+        var frontSeamMap = mapRight(frontCenter, frontY);
+        var frontSeamMapLeft = mapLeft(frontCenter, frontY);
+        var backSeamMap = mapRight(backCenter, backY);
+        var backSeamMapLeft = mapLeft(backCenter, backY);
+        var sleeveSeamMap = mapRight(sleeveCenter, sleeveY);
+        var sleeveSeamMapLeft = mapLeft(sleeveCenter, sleeveY);
+
+        var frontSidePath = seamPath(data.frontDraft.pointsCm, 1, data.frontDraft.underarmIndex, frontSeamMap);
+        var frontSidePathLeft = seamPath(data.frontDraft.pointsCm, 1, data.frontDraft.underarmIndex, frontSeamMapLeft);
+        var backSidePath = seamPath(data.backDraft.pointsCm, 1, data.backDraft.underarmIndex, backSeamMap);
+        var backSidePathLeft = seamPath(data.backDraft.pointsCm, 1, data.backDraft.underarmIndex, backSeamMapLeft);
+        var frontShoulderPath = seamPath(data.frontDraft.pointsCm, data.frontDraft.shoulderIndex, data.frontDraft.shoulderEndIndex !== undefined ? data.frontDraft.shoulderEndIndex : (data.frontDraft.shoulderIndex + 1), frontSeamMap);
+        var frontShoulderPathLeft = seamPath(data.frontDraft.pointsCm, data.frontDraft.shoulderIndex, data.frontDraft.shoulderEndIndex !== undefined ? data.frontDraft.shoulderEndIndex : (data.frontDraft.shoulderIndex + 1), frontSeamMapLeft);
+        var backShoulderPath = seamPath(data.backDraft.pointsCm, data.backDraft.shoulderIndex, data.backDraft.shoulderEndIndex !== undefined ? data.backDraft.shoulderEndIndex : (data.backDraft.shoulderIndex + 1), backSeamMap);
+        var backShoulderPathLeft = seamPath(data.backDraft.pointsCm, data.backDraft.shoulderIndex, data.backDraft.shoulderEndIndex !== undefined ? data.backDraft.shoulderEndIndex : (data.backDraft.shoulderIndex + 1), backSeamMapLeft);
+        var frontArmholePath = seamPath(data.frontDraft.pointsCm, data.frontDraft.underarmIndex, data.frontDraft.shoulderIndex, frontSeamMap);
+        var frontArmholePathLeft = seamPath(data.frontDraft.pointsCm, data.frontDraft.underarmIndex, data.frontDraft.shoulderIndex, frontSeamMapLeft);
+        var backArmholePath = seamPath(data.backDraft.pointsCm, data.backDraft.underarmIndex, data.backDraft.shoulderIndex, backSeamMap);
+        var backArmholePathLeft = seamPath(data.backDraft.pointsCm, data.backDraft.underarmIndex, data.backDraft.shoulderIndex, backSeamMapLeft);
+        var sleeveCapPath = seamPath(data.sleeveDraft.pointsCm, 2, data.sleeveDraft.pointsCm.length - 1, sleeveSeamMap);
+        var sleeveCapPathLeft = seamPath(data.sleeveDraft.pointsCm, 2, data.sleeveDraft.pointsCm.length - 1, sleeveSeamMapLeft);
+
+        var seamColors = {
+          side: '#f97316',
+          shoulder: '#22c55e',
+          armhole: '#8b5cf6'
+        };
+        var seamTopWidth = 3.1;
+
+        function seamStroke(path, color, isMirror) {
+          if (!path) return '';
+          var dash = isMirror ? ' stroke-dasharray="6 4"' : '';
+          return '<path d="' + path + '" fill="none" stroke="' + color + '" stroke-width="' + seamTopWidth + '" stroke-linecap="round" stroke-linejoin="round"' + dash + '></path>';
+        }
+
+        var armholeDelta = data.seamChecks.armholeDelta;
+        var sideDelta = data.seamChecks.sideDelta;
+        var shoulderDelta = data.seamChecks.shoulderDelta;
+        var armholeOk = Math.abs(armholeDelta) <= 0.25;
+        var sideOk = Math.abs(sideDelta) <= 1.2;
+        var shoulderOk = Math.abs(shoulderDelta) <= 0.8;
+
+        function seamColor(ok) { return ok ? '#15803d' : '#dc2626'; }
+        var clampInfo = data.chestWasClamped ? t('preview.clamp') : '';
+
+        previewSvg.innerHTML =
+          '<rect x="0" y="0" width="880" height="360" fill="#fff7fb"></rect>' +
+          '<text x="16" y="20" fill="#be185d" font-size="12" font-family="Comic Neue">' + t('preview.title', { clamp: clampInfo }) + '</text>' +
+          '<text x="16" y="36" fill="' + seamColor(armholeOk) + '" font-size="11" font-family="Comic Neue">' + t('preview.armhole_delta', { value: armholeDelta.toFixed(2) }) + '</text>' +
+          '<text x="16" y="50" fill="' + seamColor(sideOk) + '" font-size="11" font-family="Comic Neue">' + t('preview.side_delta', { value: sideDelta.toFixed(2) }) + '</text>' +
+          '<text x="16" y="64" fill="' + seamColor(shoulderOk) + '" font-size="11" font-family="Comic Neue">' + t('preview.shoulder_delta', { value: shoulderDelta.toFixed(2) }) + '</text>' +
+          '<polygon points="' + frontRight + '" fill="#fbcfe8" fill-opacity="0.72" stroke="#be185d" stroke-width="2"></polygon>' +
+          '<polygon points="' + frontLeft + '" fill="none" stroke="#be185d" stroke-width="1.8" stroke-dasharray="5 4"></polygon>' +
+          '<polygon points="' + backRight + '" fill="#bfdbfe" fill-opacity="0.72" stroke="#1d4ed8" stroke-width="2"></polygon>' +
+          '<polygon points="' + backLeft + '" fill="none" stroke="#1d4ed8" stroke-width="1.8" stroke-dasharray="5 4"></polygon>' +
+          '<polygon points="' + sleeveRight + '" fill="#d9f99d" fill-opacity="0.72" stroke="#4d7c0f" stroke-width="2"></polygon>' +
+          '<polygon points="' + sleeveLeft + '" fill="none" stroke="#4d7c0f" stroke-width="1.8" stroke-dasharray="5 4"></polygon>' +
+          seamStroke(frontSidePath, seamColors.side, false) +
+          seamStroke(frontSidePathLeft, seamColors.side, true) +
+          seamStroke(backSidePath, seamColors.side, false) +
+          seamStroke(backSidePathLeft, seamColors.side, true) +
+          seamStroke(frontShoulderPath, seamColors.shoulder, false) +
+          seamStroke(frontShoulderPathLeft, seamColors.shoulder, true) +
+          seamStroke(backShoulderPath, seamColors.shoulder, false) +
+          seamStroke(backShoulderPathLeft, seamColors.shoulder, true) +
+          seamStroke(frontArmholePath, seamColors.armhole, false) +
+          seamStroke(frontArmholePathLeft, seamColors.armhole, true) +
+          seamStroke(backArmholePath, seamColors.armhole, false) +
+          seamStroke(backArmholePathLeft, seamColors.armhole, true) +
+          seamStroke(sleeveCapPath, seamColors.armhole, false) +
+          seamStroke(sleeveCapPathLeft, seamColors.armhole, true) +
+          '<text x="' + frontCenter.toFixed(2) + '" y="' + (vbHeight - 10) + '" text-anchor="middle" fill="#be185d" font-size="12" font-family="Comic Neue">' + t('preview.front') + '</text>' +
+          '<text x="' + backCenter.toFixed(2) + '" y="' + (vbHeight - 10) + '" text-anchor="middle" fill="#1d4ed8" font-size="12" font-family="Comic Neue">' + t('preview.back') + '</text>' +
+          '<text x="' + sleeveCenter.toFixed(2) + '" y="' + (vbHeight - 10) + '" text-anchor="middle" fill="#4d7c0f" font-size="12" font-family="Comic Neue">' + t('preview.sleeve') + '</text>';
+      }
+
+      var previewToken = 0;
+      function updateCustomPreview() {
+        var token = ++previewToken;
+        try {
+          var data = computeCustomDrafts();
+          if (token !== previewToken) return;
+          renderCustomPreview(data);
+          setStatus(t('status.ready'), false);
+        } catch (err) {
+          if (token !== previewToken) return;
+          renderPreviewMessage(err.message);
+          setStatus(err.message, true);
+        }
+      }
+
+      async function generateCustomZip() {
+        if (typeof window.JSZip === 'undefined') {
+          setStatus(t('status.jszip_missing'), true);
+          return;
+        }
+
+        customGenerate.disabled = true;
+        customGenerate.classList.add('opacity-70', 'cursor-not-allowed');
+        setStatus(t('status.generating'), false);
+
+        try {
+          var data = computeCustomDrafts();
+          var zip = new window.JSZip();
+          var shoulderTag = Math.round(data.shoulderWidth * 10) / 10;
+          var bustTag = Math.round(data.bustHeight * 10) / 10;
+          var armTag = Math.round(data.armLength * 10) / 10;
+          var filePrefix = 'custom_sweater_' + data.fitKey + '_' + shoulderTag + 'sh_' + bustTag + 'bh_' + armTag + 'arm';
+
+          zip.file(filePrefix + '_front.yy', JSON.stringify(data.frontDraft.piece, null, 2));
+          zip.file(filePrefix + '_back.yy', JSON.stringify(data.backDraft.piece, null, 2));
+          zip.file(filePrefix + '_sleeve.yy', JSON.stringify(data.sleeveDraft.piece, null, 2));
+
+          var readme = [
+            t('readme.title'),
+            '',
+            t('readme.measurements'),
+            t('readme.shoulder', { value: data.shoulderWidth.toFixed(1) }),
+            t('readme.chest', { value: data.chestCirc.toFixed(1) }),
+            (data.chestWasClamped ? t('readme.chest_used_clamped', { value: data.adjustedChest.toFixed(1) }) : t('readme.chest_used', { value: data.adjustedChest.toFixed(1) })),
+            t('readme.bust', { value: data.bustHeight.toFixed(1) }),
+            t('readme.arm', { value: data.armLength.toFixed(1) }),
+            t('readme.fit', { value: t('generator.fit_' + data.fitKey) }),
+            t('readme.armhole', { value: data.armholeTotal.toFixed(2) }),
+            t('readme.sleeve_cap', { value: data.sleeveDraft.capLength.toFixed(2) }),
+            '',
+            t('readme.pattern_note'),
+            t('readme.note_grid'),
+            t('readme.note_match'),
+            t('readme.note_license')
+          ].join('\n');
+          zip.file(filePrefix + '_README.txt', readme);
+
+          var blob = await zip.generateAsync({ type: 'blob' });
+          var url = URL.createObjectURL(blob);
+          var a = document.createElement('a');
+          a.href = url;
+          a.download = filePrefix + '.zip';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+
+          setStatus(t('status.zip_done', { name: filePrefix + '.zip' }), false);
+        } catch (err) {
+          setStatus(t('status.zip_failed', { message: err.message }), true);
+        } finally {
+          customGenerate.disabled = false;
+          customGenerate.classList.remove('opacity-70', 'cursor-not-allowed');
+        }
+      }
+
+      [customShoulder, customChest, customBustHeight, customArmLength, customFit].forEach(function(el) {
+        el.addEventListener('input', updateCustomPreview);
+        el.addEventListener('change', updateCustomPreview);
+      });
+      customGenerate.addEventListener('click', generateCustomZip);
+
+      window.onY2YLangChange = function() {
+        updateCustomPreview();
+      };
+
+      updateCustomPreview();
+    })();
+  </script>
 </body>
 </html>

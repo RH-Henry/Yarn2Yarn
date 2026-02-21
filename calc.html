@@ -79,6 +79,11 @@
         border-top-right-radius: 0;
         border-bottom-left-radius: 1.5rem;
         border-bottom-right-radius: 1.5rem;
+        padding: 0.9rem;
+      }
+      .main-container .px-6 {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
       }
       body {
         padding-top: 0;
@@ -133,40 +138,48 @@
           Yarn 2 Yarn
         </h1>
         <nav class="flex flex-col md:flex-row items-center justify-center md:justify-end space-y-2 md:space-y-0 md:space-x-4 w-full md:w-auto">
-          <a href="index.html" class="hover:text-pink-500 transition-colors px-4 py-2 text-center md:text-left">Home</a>
-          <a href="#calculator" class="hover:text-pink-500 transition-colors px-4 py-2 text-center md:text-left">Calculator</a>
-          <a href="index.html#buy" class="text-white bg-pink-400 px-4 py-2 rounded-xl shadow-lg hover:bg-pink-500 transition-colors text-center md:text-left">Buy</a>
+          <a href="index.html" data-i18n="nav.home" class="hover:text-pink-500 transition-colors px-4 py-2 text-center md:text-left">Home</a>
+          <a href="#calculator" data-i18n="nav.calculator" class="hover:text-pink-500 transition-colors px-4 py-2 text-center md:text-left">Skein Calculator</a>
+          <a href="free-patterns.html" data-i18n="nav.free_patterns" class="hover:text-pink-500 transition-colors px-4 py-2 text-center md:text-left">Free Patterns</a>
+          <a href="index.html#buy" class="text-white bg-pink-400 px-4 py-2 rounded-xl shadow-lg hover:bg-pink-500 transition-colors text-center md:text-left"><span data-i18n="nav.buy">Buy</span></a>
+          <div class="flex items-center gap-2 px-2">
+            <label for="lang-select" data-i18n="nav.language" class="text-sm text-pink-700">Language</label>
+            <select id="lang-select" class="text-sm rounded-lg border-2 border-pink-200 bg-white/90 px-2 py-1 text-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-300">
+              <option value="en">English</option>
+              <option value="fr">Français</option>
+            </select>
+          </div>
         </nav>
       </div>
     </header>
 
     <div class="max-w-6xl mx-auto px-6">
       <section id="calculator" class="py-8">
-        <p class="text-sm uppercase text-pink-500 font-bold tracking-widest" style="font-size: 22px; line-height: 28px;">Yarn calculator</p>
-        <h2 class="text-3xl md:text-4xl font-bold mt-3 text-pink-600">Estimate the yarn you need</h2>
-        <p class="mt-4 text-pink-700">
+        <p data-i18n="hero.kicker" class="text-sm uppercase text-pink-500 font-bold tracking-widest" style="font-size: 22px; line-height: 28px;">Yarn calculator</p>
+        <h2 data-i18n="hero.title" class="text-3xl md:text-4xl font-bold mt-3 text-pink-600">Estimate the yarn you need</h2>
+        <p data-i18n="hero.description" class="mt-4 text-pink-700">
           Choose Simple or Precise, upload your file(s), pick your unit, enter your swatch size and mass, and get the result.
         </p>
       </section>
 
       <section class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start pb-12">
         <div class="p-6 bg-pink-50 rounded-3xl shadow-xl border-2 border-pink-200">
-          <h3 class="text-lg font-bold text-pink-600">1) Pattern area</h3>
+          <h3 data-i18n="area.title" class="text-lg font-bold text-pink-600">1) Pattern area</h3>
 
           <div class="mt-4 glass rounded-2xl border-2 border-pink-200 p-4">
-            <p class="text-sm font-bold text-pink-500">Mode</p>
+            <p data-i18n="area.mode" class="text-sm font-bold text-pink-500">Mode</p>
             <div class="mt-3 flex flex-wrap gap-4 text-sm text-pink-700">
               <label class="flex items-center gap-2">
                 <input type="radio" name="area-mode" value="precise" checked>
-                Precise (upload .yy)
+                <span data-i18n="area.mode_precise">Precise (upload .yy)</span>
               </label>
               <label class="flex items-center gap-2">
                 <input type="radio" name="area-mode" value="simple">
-                Simple (length × width)
+                <span data-i18n="area.mode_simple">Simple (length × width)</span>
               </label>
               <label class="flex items-center gap-2">
                 <input type="radio" name="area-mode" value="direct">
-                Direct area
+                <span data-i18n="area.mode_direct">Direct area</span>
               </label>
             </div>
           </div>
@@ -175,140 +188,326 @@
             <input id="file-input" type="file" accept=".yy,.json,.txt,.zip" multiple class="hidden">
             <div id="dropzone" class="p-6 border-2 border-dashed border-pink-300 rounded-2xl text-center bg-white/70 cursor-pointer hover:bg-pink-50 transition">
               <div class="text-3xl text-pink-400"><i class="fa-solid fa-cloud-arrow-up"></i></div>
-              <p class="mt-2 text-pink-700">Drop your .yy or .zip here or click to choose</p>
-              <p class="text-xs text-pink-400">Multiple files supported</p>
+              <p data-i18n="files.dropzone" class="mt-2 text-pink-700">Drop your .yy or .zip here or click to choose</p>
+              <p data-i18n="files.multiple" class="text-xs text-pink-400">Multiple files supported</p>
             </div>
-            <p id="file-status" class="status mt-3" data-state="warn">No files uploaded.</p>
+            <p id="file-status" data-i18n="files.none_uploaded" class="status mt-3" data-state="warn">No files uploaded.</p>
             <div id="file-list" class="mt-4 space-y-3"></div>
           </div>
 
           <div id="simple-section" class="mt-6 hidden">
             <div class="grid grid-cols-1 gap-4">
               <div>
-                <label for="simple-length" class="text-sm font-bold text-pink-600">Max length</label>
+                <label for="simple-length" data-i18n="simple.max_length" class="text-sm font-bold text-pink-600">Max length</label>
                 <div class="mt-2 flex gap-3 items-center">
-                  <input id="simple-length" type="number" min="0" step="0.1" placeholder="e.g. 60" class="w-full p-3 rounded-xl border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
+                  <input id="simple-length" type="number" min="0" step="0.1" data-i18n-placeholder="placeholder.length" placeholder="e.g. 60" class="w-full p-3 rounded-xl border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
                   <span id="unit-label-length" class="text-sm text-pink-500">cm</span>
                 </div>
               </div>
               <div>
-                <label for="simple-width" class="text-sm font-bold text-pink-600">Max width</label>
+                <label for="simple-width" data-i18n="simple.max_width" class="text-sm font-bold text-pink-600">Max width</label>
                 <div class="mt-2 flex gap-3 items-center">
-                  <input id="simple-width" type="number" min="0" step="0.1" placeholder="e.g. 50" class="w-full p-3 rounded-xl border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
+                  <input id="simple-width" type="number" min="0" step="0.1" data-i18n-placeholder="placeholder.width" placeholder="e.g. 50" class="w-full p-3 rounded-xl border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
                   <span id="unit-label-width" class="text-sm text-pink-500">cm</span>
                 </div>
               </div>
             </div>
             <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label for="simple-pieces" class="text-sm font-bold text-pink-600">Pieces</label>
+                <label for="simple-pieces" data-i18n="common.pieces" class="text-sm font-bold text-pink-600">Pieces</label>
                 <div class="mt-2 flex gap-3 items-center">
                   <input id="simple-pieces" type="number" min="1" step="1" value="1" class="w-full p-3 rounded-xl border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
                 </div>
               </div>
               <label class="flex items-center gap-2 text-sm text-pink-700 mt-2">
                 <input id="simple-mirror" type="checkbox">
-                Mirror (x2)
+                <span data-i18n="common.mirror">Mirror (x2)</span>
               </label>
             </div>
-            <p id="simple-area-note" class="text-xs text-pink-400 mt-2">Enter length and width to estimate the area.</p>
+            <p id="simple-area-note" data-i18n="simple.note" class="text-xs text-pink-400 mt-2">Enter length and width to estimate the area.</p>
           </div>
 
           <div id="direct-section" class="mt-6 hidden">
             <div class="grid grid-cols-1 gap-4">
               <div>
-                <label for="direct-area" class="text-sm font-bold text-pink-600">Area</label>
+                <label for="direct-area" data-i18n="direct.area" class="text-sm font-bold text-pink-600">Area</label>
                 <div class="mt-2 flex gap-3 items-center">
-                  <input id="direct-area" type="number" min="0" step="0.01" placeholder="e.g. 1800" class="w-full p-3 rounded-xl border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
+                  <input id="direct-area" type="number" min="0" step="0.01" data-i18n-placeholder="placeholder.area" placeholder="e.g. 1800" class="w-full p-3 rounded-xl border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
                   <span id="unit-label-area" class="text-sm text-pink-500">cm²</span>
                 </div>
               </div>
             </div>
             <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label for="direct-pieces" class="text-sm font-bold text-pink-600">Pieces</label>
+                <label for="direct-pieces" data-i18n="common.pieces" class="text-sm font-bold text-pink-600">Pieces</label>
                 <div class="mt-2 flex gap-3 items-center">
                   <input id="direct-pieces" type="number" min="1" step="1" value="1" class="w-full p-3 rounded-xl border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
                 </div>
               </div>
               <label class="flex items-center gap-2 text-sm text-pink-700 mt-2">
                 <input id="direct-mirror" type="checkbox">
-                Mirror (x2)
+                <span data-i18n="common.mirror">Mirror (x2)</span>
               </label>
             </div>
-            <p id="direct-area-note" class="text-xs text-pink-400 mt-2">Enter a total area or a single piece area.</p>
+            <p id="direct-area-note" data-i18n="direct.note" class="text-xs text-pink-400 mt-2">Enter a total area or a single piece area.</p>
           </div>
         </div>
 
         <div class="p-6 bg-pink-50 rounded-3xl shadow-xl border-2 border-pink-200">
-          <h3 class="text-lg font-bold text-pink-600">2) Swatch & result</h3>
+          <h3 data-i18n="swatch.title" class="text-lg font-bold text-pink-600">2) Swatch & result</h3>
 
           <div class="mt-4 grid grid-cols-1 gap-4">
             <div>
-              <label for="unit-select" class="text-sm font-bold text-pink-600">Unit</label>
+              <label for="unit-select" data-i18n="swatch.unit" class="text-sm font-bold text-pink-600">Unit system</label>
               <div class="mt-2 flex gap-3 items-center">
                 <select id="unit-select" class="w-full p-3 rounded-xl border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
-                  <option value="cm" selected>cm</option>
-                  <option value="in">in</option>
+                  <option value="metric" selected data-i18n="swatch.unit_metric">g - cm</option>
+                  <option value="imperial" data-i18n="swatch.unit_imperial">oz - in</option>
                 </select>
               </div>
             </div>
             <div>
-              <label for="swatch-width" class="text-sm font-bold text-pink-600">Swatch width</label>
+              <label for="swatch-width" data-i18n="swatch.width" class="text-sm font-bold text-pink-600">Swatch width</label>
               <div class="mt-2 flex gap-3 items-center">
-                <input id="swatch-width" type="number" min="0" step="0.01" placeholder="e.g. 10" class="w-full p-3 rounded-xl border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
+                <input id="swatch-width" type="number" min="0" step="0.01" data-i18n-placeholder="placeholder.swatch" placeholder="e.g. 10" class="w-full p-3 rounded-xl border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
                 <span id="unit-label-swatch-w" class="text-sm text-pink-500">cm</span>
               </div>
             </div>
             <div>
-              <label for="swatch-height" class="text-sm font-bold text-pink-600">Swatch height</label>
+              <label for="swatch-height" data-i18n="swatch.height" class="text-sm font-bold text-pink-600">Swatch height</label>
               <div class="mt-2 flex gap-3 items-center">
-                <input id="swatch-height" type="number" min="0" step="0.01" placeholder="e.g. 10" class="w-full p-3 rounded-xl border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
+                <input id="swatch-height" type="number" min="0" step="0.01" data-i18n-placeholder="placeholder.swatch" placeholder="e.g. 10" class="w-full p-3 rounded-xl border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
                 <span id="unit-label-swatch-h" class="text-sm text-pink-500">cm</span>
               </div>
             </div>
             <div>
-              <label for="swatch-mass" class="text-sm font-bold text-pink-600">Swatch mass</label>
+              <label for="swatch-mass" data-i18n="swatch.mass" class="text-sm font-bold text-pink-600">Swatch mass</label>
               <div class="mt-2 flex gap-3 items-center">
-                <input id="swatch-mass" type="number" min="0" step="0.1" placeholder="e.g. 12" class="w-full p-3 rounded-xl border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
-                <span class="text-sm text-pink-500">g</span>
+                <input id="swatch-mass" type="number" min="0" step="0.1" data-i18n-placeholder="placeholder.mass" placeholder="e.g. 12" class="w-full p-3 rounded-xl border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">
+                <span id="unit-label-mass" class="text-sm text-pink-500">g</span>
               </div>
             </div>
           </div>
 
           <div class="mt-6 glass rounded-2xl border-2 border-pink-200 p-4">
-            <p class="text-sm font-bold text-pink-500">Result</p>
+            <p data-i18n="result.title" class="text-sm font-bold text-pink-500">Result</p>
             <div class="mt-3 grid grid-cols-1 gap-2">
               <div class="flex items-center justify-between">
-                <span class="text-sm text-pink-700">Estimated mass</span>
+                <span data-i18n="result.estimated_mass" class="text-sm text-pink-700">Estimated mass</span>
                 <span id="result-base" class="text-lg font-bold text-pink-600">—</span>
               </div>
               <div class="flex items-center justify-between">
-                <span class="text-sm text-pink-700">Range (incl. +10%)</span>
+                <span data-i18n="result.range" class="text-sm text-pink-700">Range (incl. +10%)</span>
                 <span id="result-range" class="text-lg font-bold text-pink-600">—</span>
               </div>
             </div>
-            <div class="mt-4 text-xs text-pink-400" id="result-details">Fill the fields to get an estimate.</div>
+            <div class="mt-4 text-xs text-pink-400" id="result-details" data-i18n="result.details_idle">Fill the fields to get an estimate.</div>
           </div>
         </div>
       </section>
 
       <section class="py-6">
-        <h3 class="text-lg font-bold text-pink-600">Quick note</h3>
-        <p class="mt-2 text-pink-700">
+        <h3 data-i18n="note.title" class="text-lg font-bold text-pink-600">Quick note</h3>
+        <p data-i18n="note.text" class="mt-2 text-pink-700">
           Bigger swatches give better estimates. The range always includes an extra 10% to stay safe.
         </p>
       </section>
 
       <footer class="py-12 text-center text-sm text-pink-500">
-        <p>© Yarn 2 Yarn — Convert patterns & keep what you love.</p>
+        <p data-i18n="footer.copy">© Yarn 2 Yarn — Convert patterns & keep what you love.</p>
       </footer>
     </div>
   </main>
 
+  <script>
+    (function() {
+      var translations = {
+        en: {
+          "page.title": "Yarn 2 Yarn — Yarn calculator",
+          "nav.home": "Home",
+          "nav.calculator": "Skein Calculator",
+          "nav.free_patterns": "Free Patterns",
+          "nav.buy": "Buy",
+          "nav.language": "Language",
+          "hero.kicker": "Yarn calculator",
+          "hero.title": "Estimate the yarn you need",
+          "hero.description": "Choose Simple or Precise, upload your file(s), pick your unit, enter your swatch size and mass, and get the result.",
+          "area.title": "1) Pattern area",
+          "area.mode": "Mode",
+          "area.mode_precise": "Precise (upload .yy)",
+          "area.mode_simple": "Simple (length × width)",
+          "area.mode_direct": "Direct area",
+          "files.dropzone": "Drop your .yy or .zip here or click to choose",
+          "files.multiple": "Multiple files supported",
+          "files.none_uploaded": "No files uploaded.",
+          "files.no_files_yet": "No files yet.",
+          "files.area_prefix": "Area:",
+          "files.remove": "Remove",
+          "common.pieces": "Pieces",
+          "common.mirror": "Mirror (x2)",
+          "simple.max_length": "Max length",
+          "simple.max_width": "Max width",
+          "simple.note": "Enter length and width to estimate the area.",
+          "direct.area": "Area",
+          "direct.note": "Enter a total area or a single piece area.",
+          "swatch.title": "2) Swatch & result",
+          "swatch.unit": "Unit system",
+          "swatch.unit_metric": "g - cm",
+          "swatch.unit_imperial": "oz - in",
+          "swatch.width": "Swatch width",
+          "swatch.height": "Swatch height",
+          "swatch.mass": "Swatch mass",
+          "result.title": "Result",
+          "result.estimated_mass": "Estimated mass",
+          "result.range": "Range (incl. +10%)",
+          "result.details_idle": "Fill the fields to get an estimate.",
+          "note.title": "Quick note",
+          "note.text": "Bigger swatches give better estimates. The range always includes an extra 10% to stay safe.",
+          "footer.copy": "© Yarn 2 Yarn — Convert patterns & keep what you love.",
+          "placeholder.length": "e.g. 60",
+          "placeholder.width": "e.g. 50",
+          "placeholder.area": "e.g. 1800",
+          "placeholder.swatch": "e.g. 10",
+          "placeholder.mass": "e.g. 12",
+          "error.missing_phys": "Missing phys_w/phys_h in the file.",
+          "error.area_not_found": "Area not found in this file.",
+          "error.reading_file": "Reading file...",
+          "error.could_not_read_file": "Could not read the file.",
+          "error.zip_unavailable": "Zip support is not available. Try .yy files instead.",
+          "error.no_yy_in_zip": "No .yy files found in the zip.",
+          "error.zip_read_failed": "Could not read the zip file.",
+          "status.no_files": "No files uploaded.",
+          "status.files_ready": "{count} file(s) ready.",
+          "status.files_ready_valid": "{count} file(s) ready ({valid} valid).",
+          "simple.note_estimated": "Estimated area: {min} – {max}",
+          "simple.note_enter": "Enter length and width to estimate the area.",
+          "direct.note_total": "Total area: {area}",
+          "direct.note_enter": "Enter an area to calculate.",
+          "result.fill_fields": "Fill the fields to get an estimate.",
+          "result.values_positive": "Make sure all values are positive.",
+          "result.details": "Total area: {area} · Swatch area: {swatch} · +10% included"
+        },
+        fr: {
+          "page.title": "Yarn 2 Yarn — Calculateur de laine",
+          "nav.home": "Accueil",
+          "nav.calculator": "Calculateur de pelotes",
+          "nav.free_patterns": "Patrons gratuits",
+          "nav.buy": "Acheter",
+          "nav.language": "Langue",
+          "hero.kicker": "Calculateur de laine",
+          "hero.title": "Estimez la laine nécessaire",
+          "hero.description": "Choisissez Simple ou Précis, importez vos fichiers, choisissez l'unité, indiquez la taille et la masse de l'échantillon, puis obtenez le résultat.",
+          "area.title": "1) Surface du patron",
+          "area.mode": "Mode",
+          "area.mode_precise": "Précis (importer .yy)",
+          "area.mode_simple": "Simple (longueur × largeur)",
+          "area.mode_direct": "Surface directe",
+          "files.dropzone": "Déposez vos fichiers .yy ou .zip ici ou cliquez pour choisir",
+          "files.multiple": "Plusieurs fichiers acceptés",
+          "files.none_uploaded": "Aucun fichier importé.",
+          "files.no_files_yet": "Aucun fichier pour l'instant.",
+          "files.area_prefix": "Surface :",
+          "files.remove": "Supprimer",
+          "common.pieces": "Pièces",
+          "common.mirror": "Miroir (x2)",
+          "simple.max_length": "Longueur max",
+          "simple.max_width": "Largeur max",
+          "simple.note": "Entrez la longueur et la largeur pour estimer la surface.",
+          "direct.area": "Surface",
+          "direct.note": "Entrez une surface totale ou celle d'une seule pièce.",
+          "swatch.title": "2) Échantillon & résultat",
+          "swatch.unit": "Système d'unités",
+          "swatch.unit_metric": "g - cm",
+          "swatch.unit_imperial": "oz - in",
+          "swatch.width": "Largeur de l'échantillon",
+          "swatch.height": "Hauteur de l'échantillon",
+          "swatch.mass": "Masse de l'échantillon",
+          "result.title": "Résultat",
+          "result.estimated_mass": "Masse estimée",
+          "result.range": "Fourchette (+10% inclus)",
+          "result.details_idle": "Remplissez les champs pour obtenir une estimation.",
+          "note.title": "Note rapide",
+          "note.text": "Des échantillons plus grands donnent une meilleure estimation. La fourchette inclut toujours 10% en plus pour la marge.",
+          "footer.copy": "© Yarn 2 Yarn — Convertissez vos patrons et gardez ce que vous aimez.",
+          "placeholder.length": "ex. 60",
+          "placeholder.width": "ex. 50",
+          "placeholder.area": "ex. 1800",
+          "placeholder.swatch": "ex. 10",
+          "placeholder.mass": "ex. 12",
+          "error.missing_phys": "phys_w/phys_h manquants dans le fichier.",
+          "error.area_not_found": "Surface introuvable dans ce fichier.",
+          "error.reading_file": "Lecture du fichier...",
+          "error.could_not_read_file": "Impossible de lire le fichier.",
+          "error.zip_unavailable": "Le support ZIP n'est pas disponible. Essayez avec des fichiers .yy.",
+          "error.no_yy_in_zip": "Aucun fichier .yy trouvé dans le ZIP.",
+          "error.zip_read_failed": "Impossible de lire le fichier ZIP.",
+          "status.no_files": "Aucun fichier importé.",
+          "status.files_ready": "{count} fichier(s) prêt(s).",
+          "status.files_ready_valid": "{count} fichier(s) prêt(s) ({valid} valide(s)).",
+          "simple.note_estimated": "Surface estimée : {min} – {max}",
+          "simple.note_enter": "Entrez la longueur et la largeur pour estimer la surface.",
+          "direct.note_total": "Surface totale : {area}",
+          "direct.note_enter": "Entrez une surface à calculer.",
+          "result.fill_fields": "Remplissez les champs pour obtenir une estimation.",
+          "result.values_positive": "Vérifiez que toutes les valeurs sont positives.",
+          "result.details": "Surface totale : {area} · Surface échantillon : {swatch} · +10% inclus"
+        }
+      };
+
+      var currentLang = ((navigator.language || "").toLowerCase().indexOf("fr") === 0 ? "fr" : "en");
+
+      function interpolate(text, vars) {
+        if (!vars) return text;
+        return text.replace(/\{(\w+)\}/g, function(_, key) {
+          return vars[key] !== undefined ? String(vars[key]) : "";
+        });
+      }
+
+      function t(key, vars) {
+        var raw = (translations[currentLang] && translations[currentLang][key]) || (translations.en && translations.en[key]) || key;
+        return interpolate(raw, vars);
+      }
+
+      function apply() {
+        document.documentElement.lang = currentLang;
+        document.title = t("page.title");
+        document.querySelectorAll("[data-i18n]").forEach(function(node) {
+          node.textContent = t(node.getAttribute("data-i18n"));
+        });
+        document.querySelectorAll("[data-i18n-placeholder]").forEach(function(node) {
+          node.placeholder = t(node.getAttribute("data-i18n-placeholder"));
+        });
+        var select = document.getElementById("lang-select");
+        if (select) select.value = currentLang;
+      }
+
+      function setLang(lang) {
+        currentLang = lang === "fr" ? "fr" : "en";
+        apply();
+        if (typeof window.onY2YLangChange === "function") window.onY2YLangChange(currentLang);
+      }
+
+      var langSelect = document.getElementById("lang-select");
+      if (langSelect) {
+        langSelect.addEventListener("change", function() {
+          setLang(langSelect.value);
+        });
+      }
+
+      apply();
+      window.y2yI18n = {
+        t: t,
+        getLang: function() { return currentLang; },
+        setLang: setLang,
+        apply: apply
+      };
+    })();
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
   <script>
     (function(){
+      var i18n = window.y2yI18n || { t: function(key){ return key; } };
+      function t(key, vars) { return i18n.t(key, vars); }
       var dropzone = document.getElementById('dropzone');
       var fileInput = document.getElementById('file-input');
       var statusEl = document.getElementById('file-status');
@@ -332,6 +531,7 @@
       var unitLabelSwatchW = document.getElementById('unit-label-swatch-w');
       var unitLabelSwatchH = document.getElementById('unit-label-swatch-h');
       var unitLabelArea = document.getElementById('unit-label-area');
+      var unitLabelMass = document.getElementById('unit-label-mass');
       var swatchWidth = document.getElementById('swatch-width');
       var swatchHeight = document.getElementById('swatch-height');
       var swatchMass = document.getElementById('swatch-mass');
@@ -362,23 +562,41 @@
         return value.toFixed(decimals);
       }
 
-      function getUnit() {
-        return unitSelect ? unitSelect.value : 'cm';
+      function getSystem() {
+        return unitSelect ? unitSelect.value : 'metric';
       }
 
       function toCm(value) {
         if (!Number.isFinite(value)) return value;
-        return getUnit() === 'in' ? value * 2.54 : value;
+        return getSystem() === 'imperial' ? value * 2.54 : value;
       }
 
       function areaToDisplay(areaCm2) {
         if (!Number.isFinite(areaCm2)) return areaCm2;
-        return getUnit() === 'in' ? areaCm2 / 6.4516 : areaCm2;
+        return getSystem() === 'imperial' ? areaCm2 / 6.4516 : areaCm2;
+      }
+
+      function massToDisplay(massG) {
+        if (!Number.isFinite(massG)) return massG;
+        return getSystem() === 'imperial' ? massG / 28.349523125 : massG;
+      }
+
+      function massFromDisplay(massValue) {
+        if (!Number.isFinite(massValue)) return massValue;
+        return getSystem() === 'imperial' ? massValue * 28.349523125 : massValue;
+      }
+
+      function dimUnit() {
+        return getSystem() === 'imperial' ? 'in' : 'cm';
+      }
+
+      function massUnit() {
+        return getSystem() === 'imperial' ? 'oz' : 'g';
       }
 
       function formatArea(areaCm2) {
         var display = areaToDisplay(areaCm2);
-        return formatNumber(display, 2) + ' ' + getUnit() + '²';
+        return formatNumber(display, 2) + ' ' + dimUnit() + '²';
       }
 
       function polygonArea(points) {
@@ -510,7 +728,7 @@
               if (Number.isFinite(physW) && Number.isFinite(physH) && physW > 0 && physH > 0) {
                 return { area: areaNorm * physW * physH, source: 'points + phys_w/phys_h' };
               }
-              return { error: 'Missing phys_w/phys_h in the file.' };
+                return { error: t('error.missing_phys') };
             }
           }
 
@@ -533,7 +751,7 @@
           return { area: polygonArea(pointsText), source: 'text coordinates' };
         }
 
-        return { error: 'Area not found in this file.' };
+        return { error: t('error.area_not_found') };
       }
 
       function getMode() {
@@ -561,28 +779,28 @@
 
       function updateStatus() {
         if (filesData.length === 0) {
-          setStatus('No files uploaded.', 'warn');
+          setStatus(t('status.no_files'), 'warn');
           return;
         }
         var validCount = filesData.filter(function(item){ return Number.isFinite(item.areaCm2); }).length;
-        var message = filesData.length + ' file(s) ready';
         if (validCount !== filesData.length) {
-          message += ' (' + validCount + ' valid)';
+          setStatus(t('status.files_ready_valid', { count: filesData.length, valid: validCount }), validCount > 0 ? 'ok' : 'warn');
+          return;
         }
-        setStatus(message + '.', validCount > 0 ? 'ok' : 'warn');
+        setStatus(t('status.files_ready', { count: filesData.length }), validCount > 0 ? 'ok' : 'warn');
       }
 
       function renderFileList() {
         if (!fileList) return;
         if (filesData.length === 0) {
-          fileList.innerHTML = '<p class="text-xs text-pink-400">No files yet.</p>';
+          fileList.innerHTML = '<p class="text-xs text-pink-400">' + t('files.no_files_yet') + '</p>';
           return;
         }
         var html = '';
         filesData.forEach(function(item){
           var hasArea = Number.isFinite(item.areaCm2);
           var areaText = hasArea ? formatArea(item.areaCm2) : '—';
-          var statusText = item.error ? '<span class="text-xs text-red-500">' + item.error + '</span>' : '<span class="text-xs text-pink-400">Area: ' + areaText + '</span>';
+          var statusText = item.error ? '<span class="text-xs text-red-500">' + item.error + '</span>' : '<span class="text-xs text-pink-400">' + t('files.area_prefix') + ' ' + areaText + '</span>';
           html += '' +
             '<div class="p-4 rounded-2xl border-2 border-pink-200 bg-white/70">' +
               '<div class="flex items-start justify-between gap-3">' +
@@ -590,16 +808,16 @@
                   '<p class="text-sm font-bold text-pink-600">' + item.name + '</p>' +
                   statusText +
                 '</div>' +
-                '<button type="button" data-action="remove" data-id="' + item.id + '" class="text-xs text-pink-500 underline hover:text-pink-700">Remove</button>' +
+                '<button type="button" data-action="remove" data-id="' + item.id + '" class="text-xs text-pink-500 underline hover:text-pink-700">' + t('files.remove') + '</button>' +
               '</div>' +
               '<div class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-pink-700">' +
                 '<div>' +
-                  '<label class="text-xs font-bold text-pink-600">Pieces</label>' +
+                  '<label class="text-xs font-bold text-pink-600">' + t('common.pieces') + '</label>' +
                   '<input type="number" min="1" step="1" value="' + item.pieces + '" data-action="pieces" data-id="' + item.id + '" class="mt-1 w-full p-2 rounded-xl border-2 border-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-300">' +
                 '</div>' +
                 '<label class="flex items-center gap-2 mt-6">' +
                   '<input type="checkbox" data-action="mirror" data-id="' + item.id + '"' + (item.mirror ? ' checked' : '') + '>' +
-                  'Mirror (x2)' +
+                  t('common.mirror') +
                 '</label>' +
               '</div>' +
             '</div>';
@@ -612,7 +830,7 @@
           id: nextFileId++,
           name: name,
           areaCm2: null,
-          error: 'Reading file...',
+          error: t('error.reading_file'),
           mirror: false,
           pieces: 1
         };
@@ -627,7 +845,7 @@
         } else if (parsed && parsed.error) {
           entry.error = parsed.error;
         } else {
-          entry.error = 'Area not found in this file.';
+          entry.error = t('error.area_not_found');
         }
         renderFileList();
         updateStatus();
@@ -639,7 +857,7 @@
           id: nextFileId++,
           name: file.name,
           areaCm2: null,
-          error: 'Reading file...',
+          error: t('error.reading_file'),
           mirror: false,
           pieces: 1
         };
@@ -657,14 +875,14 @@
           } else if (parsed && parsed.error) {
             entry.error = parsed.error;
           } else {
-            entry.error = 'Area not found in this file.';
+            entry.error = t('error.area_not_found');
           }
           renderFileList();
           updateStatus();
           recalc();
         };
         reader.onerror = function() {
-          entry.error = 'Could not read the file.';
+          entry.error = t('error.could_not_read_file');
           renderFileList();
           updateStatus();
         };
@@ -673,7 +891,7 @@
 
       function addZipFile(file) {
         if (typeof JSZip === 'undefined') {
-          setStatus('Zip support is not available. Try .yy files instead.', 'error');
+          setStatus(t('error.zip_unavailable'), 'error');
           return;
         }
         JSZip.loadAsync(file).then(function(zip){
@@ -690,10 +908,10 @@
             });
           });
           if (!found) {
-            setStatus('No .yy files found in the zip.', 'warn');
+            setStatus(t('error.no_yy_in_zip'), 'warn');
           }
         }).catch(function(){
-          setStatus('Could not read the zip file.', 'error');
+          setStatus(t('error.zip_read_failed'), 'error');
         });
       }
 
@@ -727,9 +945,9 @@
             areaMin = baseArea * 0.8;
             areaMax = baseArea * 1.0;
             areaMean = (areaMin + areaMax) / 2;
-            simpleAreaNote.textContent = 'Estimated area: ' + formatArea(areaMin) + ' – ' + formatArea(areaMax);
+            simpleAreaNote.textContent = t('simple.note_estimated', { min: formatArea(areaMin), max: formatArea(areaMax) });
           } else {
-            simpleAreaNote.textContent = 'Enter length and width to estimate the area.';
+            simpleAreaNote.textContent = t('simple.note_enter');
           }
         } else if (mode === 'direct') {
           var directValue = parseNumber(directArea.value);
@@ -737,14 +955,14 @@
           if (!Number.isFinite(piecesDirect) || piecesDirect < 1) piecesDirect = 1;
           var mirrorDirect = directMirror && directMirror.checked ? 2 : 1;
           if (directValue) {
-            var areaCm2 = getUnit() === 'in' ? directValue * 6.4516 : directValue;
+            var areaCm2 = getSystem() === 'imperial' ? directValue * 6.4516 : directValue;
             var totalArea = areaCm2 * piecesDirect * mirrorDirect;
             areaMin = totalArea;
             areaMax = totalArea;
             areaMean = totalArea;
-            directAreaNote.textContent = 'Total area: ' + formatArea(totalArea);
+            directAreaNote.textContent = t('direct.note_total', { area: formatArea(totalArea) });
           } else {
-            directAreaNote.textContent = 'Enter an area to calculate.';
+            directAreaNote.textContent = t('direct.note_enter');
           }
         } else {
           var totalMin = 0;
@@ -767,14 +985,15 @@
 
         var swatchW = parseNumber(swatchWidth.value);
         var swatchH = parseNumber(swatchHeight.value);
-        var mass = parseNumber(swatchMass.value);
+        var massInput = parseNumber(swatchMass.value);
+        var mass = massInput ? massFromDisplay(massInput) : null;
         var swatchWcm = swatchW ? toCm(swatchW) : null;
         var swatchHcm = swatchH ? toCm(swatchH) : null;
 
         if (!areaMin || !areaMax || !swatchWcm || !swatchHcm || !mass) {
           resultBase.textContent = '—';
           resultRange.textContent = '—';
-          resultDetails.textContent = 'Fill the fields to get an estimate.';
+          resultDetails.textContent = t('result.fill_fields');
           return;
         }
 
@@ -782,7 +1001,7 @@
         if (swatchArea <= 0 || mass <= 0) {
           resultBase.textContent = '—';
           resultRange.textContent = '—';
-          resultDetails.textContent = 'Make sure all values are positive.';
+          resultDetails.textContent = t('result.values_positive');
           return;
         }
 
@@ -792,18 +1011,19 @@
         var maxMass = areaMax * density;
         var maxWithMargin = maxMass * marginFactor;
 
-        resultBase.textContent = formatNumber(baseMass, 1) + ' g';
-        resultRange.textContent = formatNumber(minMass, 1) + ' – ' + formatNumber(maxWithMargin, 1) + ' g';
-        resultDetails.textContent = 'Total area: ' + formatArea(areaMean) + ' · Swatch area: ' + formatArea(swatchArea) + ' · +10% included';
+        resultBase.textContent = formatNumber(massToDisplay(baseMass), 1) + ' ' + massUnit();
+        resultRange.textContent = formatNumber(massToDisplay(minMass), 1) + ' – ' + formatNumber(massToDisplay(maxWithMargin), 1) + ' ' + massUnit();
+        resultDetails.textContent = t('result.details', { area: formatArea(areaMean), swatch: formatArea(swatchArea) });
       }
 
       function updateUnitLabels() {
-        var unit = getUnit();
+        var unit = dimUnit();
         if (unitLabelLength) unitLabelLength.textContent = unit;
         if (unitLabelWidth) unitLabelWidth.textContent = unit;
         if (unitLabelSwatchW) unitLabelSwatchW.textContent = unit;
         if (unitLabelSwatchH) unitLabelSwatchH.textContent = unit;
         if (unitLabelArea) unitLabelArea.textContent = unit + '²';
+        if (unitLabelMass) unitLabelMass.textContent = massUnit();
         renderFileList();
       }
 
@@ -893,7 +1113,14 @@
         input.addEventListener('change', recalc);
       });
 
+      window.onY2YLangChange = function() {
+        renderFileList();
+        updateStatus();
+        recalc();
+      };
+
       updateUnitLabels();
+      renderFileList();
       updateStatus();
     })();
   </script>
