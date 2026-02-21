@@ -86,6 +86,12 @@
         border-top-right-radius: 0;
         border-bottom-left-radius: 1.5rem;
         border-bottom-right-radius: 1.5rem;
+        padding: 0.9rem;
+      }
+
+      .main-container .px-6 {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
       }
 
       .pdf-preview {
@@ -205,6 +211,9 @@
       display: block;
       margin-bottom: 12px;
     }
+    .terms-panel {
+      display: none;
+    }
 
   </style>
 </head>
@@ -221,15 +230,20 @@
 
         <!-- Navigation / boutons -->
         <nav class="flex flex-col md:flex-row items-center justify-center md:justify-end space-y-2 md:space-y-0 md:space-x-4 w-full md:w-auto">
-          <a href="#features" class="hover:text-pink-500 transition-colors px-4 py-2 text-center md:text-left">Features</a>
-          <a href="#screenshots" class="hover:text-pink-500 transition-colors px-4 py-2 text-center md:text-left">Screenshots</a>
-          <a href="calc.html" class="hover:text-pink-500 transition-colors px-4 py-2 text-center md:text-left">Calculator</a>
-          <!--<a href="free-patterns.html" class="hover:text-pink-500 transition-colors px-4 py-2 text-center md:text-left">
-            Free Patterns
-          </a>-->
+          <a href="#features" data-i18n="nav.features" class="hover:text-pink-500 transition-colors px-4 py-2 text-center md:text-left">Features</a>
+          <a href="#screenshots" data-i18n="nav.screenshots" class="hover:text-pink-500 transition-colors px-4 py-2 text-center md:text-left">Screenshots</a>
+          <a href="calc.html" data-i18n="nav.calculator" class="hover:text-pink-500 transition-colors px-4 py-2 text-center md:text-left">Skein Calculator</a>
+          <a href="free-patterns.html" data-i18n="nav.free_patterns" class="hover:text-pink-500 transition-colors px-4 py-2 text-center md:text-left">Free Patterns</a>
           <a href="#buy" class="text-white bg-pink-400 px-4 py-2 rounded-xl shadow-lg hover:bg-pink-500 transition-colors text-center md:text-left">
-            Buy
+            <span data-i18n="nav.buy">Buy</span>
           </a>
+          <div class="flex items-center gap-2 px-2">
+            <label for="lang-select" data-i18n="nav.language" class="text-sm text-pink-700">Language</label>
+            <select id="lang-select" class="text-sm rounded-lg border-2 border-pink-200 bg-white/90 px-2 py-1 text-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-300">
+              <option value="en">English</option>
+              <option value="fr">Français</option>
+            </select>
+          </div>
         </nav>
       </div>
     </header>
@@ -239,67 +253,67 @@
       <img src="pullspry2y.png" style="width:100%;height:auto;">
       <section class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center py-12">
         <div>
-          <p class="text-sm uppercase text-pink-500 font-bold tracking-widest" style="font-size: xx-large; line-height:30px">Convert • Adapt • Knit</p>
-          <h2 class="text-3xl md:text-4xl font-bold mt-3 text-pink-600">Make any pattern fit any yarn — instantly</h2>
-          <p class="mt-4 text-pink-700">Yarn 2 Yarn helps to convert written or graphical knitting patterns to match the yarn and gauge you have on hand. Combine the pattern and the yarn you love without having to use specific ones, be creative and use all your yarns. Generate clear row-by-row instructions, stitch counts, and a printable grid — ready to knit, and create patterns.</p>
+          <p data-i18n="hero.tagline" class="text-sm uppercase text-pink-500 font-bold tracking-widest" style="font-size: xx-large; line-height:30px">Convert • Adapt • Knit</p>
+          <h2 data-i18n="hero.title" class="text-3xl md:text-4xl font-bold mt-3 text-pink-600">Make any pattern fit any yarn — instantly</h2>
+          <p data-i18n="hero.description" class="mt-4 text-pink-700">Yarn 2 Yarn helps to convert written or graphical knitting patterns to match the yarn and gauge you have on hand. Combine the pattern and the yarn you love without having to use specific ones, be creative and use all your yarns. Generate clear row-by-row instructions, stitch counts, and a printable grid — ready to knit, and create patterns.</p>
 
           <ul class="mt-6 space-y-3 text-pink-800">
-            <li class="flex items-start"><span class="mr-3 text-pink-400">●</span><strong>Adapt any pattern</strong> — swap yarns instantly without math.</li>
-            <li class="flex items-start"><span class="mr-3 text-pink-400">●</span><strong>Share & collaborate</strong> — save, export and send a friend-ready version.</li>
-            <li class="flex items-start"><span class="mr-3 text-pink-400">●</span><strong>Practical outputs</strong> — printable grid, row instructions, and gauge settings.</li>
+            <li class="flex items-start"><span class="mr-3 text-pink-400">●</span><span data-i18n-html="hero.bullet_1"><strong>Adapt any pattern</strong> — swap yarns instantly without math.</span></li>
+            <li class="flex items-start"><span class="mr-3 text-pink-400">●</span><span data-i18n-html="hero.bullet_2"><strong>Share & collaborate</strong> — save, export and send a friend-ready version.</span></li>
+            <li class="flex items-start"><span class="mr-3 text-pink-400">●</span><span data-i18n-html="hero.bullet_3"><strong>Practical outputs</strong> — printable grid, row instructions, and gauge settings.</span></li>
           </ul>
 
           <div class="mt-6 flex flex-wrap gap-4">
-            <a id="buy" href="https://yarn2yarn.lemonsqueezy.com/checkout/buy/22267c7e-5ff2-482f-9b16-f2206b3a0a4a?embed=1" class="lemonsqueezy-button btn-kawaii inline-flex items-center px-5 py-3 bg-yellow-700 text-white rounded-2xl shadow-lg hover:bg-yellow-600">Buy once forever, two computers, total : €30.</a><script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
+            <a id="buy" data-i18n="hero.buy_cta" href="https://yarn2yarn.lemonsqueezy.com/checkout/buy/22267c7e-5ff2-482f-9b16-f2206b3a0a4a?embed=1" class="lemonsqueezy-button btn-kawaii inline-flex items-center px-5 py-3 bg-yellow-700 text-white rounded-2xl shadow-lg hover:bg-yellow-600">Buy once forever, two computers, total : €30.</a><script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
             <a href="download.html" class="btn-kawaii inline-flex items-center px-5 py-3 bg-white border-2 border-pink-200 text-pink-700 rounded-2xl shadow hover:bg-pink-50">
-              Download for windows (.exe)
+              <span data-i18n="hero.download_windows">Download for windows (.exe)</span>
             </a>
             <a href="https://github.com/rh-henry/yarn2yarn/releases/latest/download/Yarn2Yarn1.1.dmg" class="btn-kawaii inline-flex items-center px-5 py-3 bg-white border-2 border-pink-200 text-pink-700 rounded-2xl shadow hover:bg-pink-50">
-              Download for mac (apple silicon)
+              <span data-i18n="hero.download_mac">Download for mac (apple silicon)</span>
             </a>
-            <a href="#screenshots" class="text-sm text-pink-600 hover:underline">See screenshots</a>
+            <a href="#screenshots" data-i18n="hero.see_screenshots" class="text-sm text-pink-600 hover:underline">See screenshots</a>
           </div>
 
-          <p class="mt-4 text-xs text-pink-400">One-time purchase. One for you, one for a friend, and share patterns.</p>
+          <p data-i18n="hero.one_time" class="mt-4 text-xs text-pink-400">One-time purchase. One for you, one for a friend, and share patterns.</p>
 
           <div class="mt-6 p-4 glass rounded-2xl border-2 border-pink-200 shadow-sm">
-            <p class="text-sm font-bold text-pink-500">Why it matters</p>
-            <p class="mt-2 text-sm text-pink-700">No more guessing which yarn to buy or wrestling with math. No recalculations and formulas. Keep the design you love — use the yarn you already own. Save money. Perfect for makers who value thrift, creativity, and sharing.</p>
+            <p data-i18n="hero.why_title" class="text-sm font-bold text-pink-500">Why it matters</p>
+            <p data-i18n="hero.why_text" class="mt-2 text-sm text-pink-700">No more guessing which yarn to buy or wrestling with math. No recalculations and formulas. Keep the design you love — use the yarn you already own. Save money. Perfect for makers who value thrift, creativity, and sharing.</p>
           </div>
         </div>
 
         <div class="p-6 bg-pink-50 rounded-3xl shadow-xl">
           <img src="base.png" alt="Yarn 2 Yarn screenshot modern" class="w-full screenshot rounded-xl border-4 border-pink-100">
-          <figcaption class="mt-3 text-xs text-pink-400">Clean editor: draw or import a pattern, set gauge, export instructions.</figcaption>
+          <figcaption data-i18n="hero.figure_caption" class="mt-3 text-xs text-pink-400">Clean editor: draw or import a pattern, set gauge, export instructions.</figcaption>
         </div>
       </section>
 
       <section id="features" class="py-8">
-        <h3 class="text-xl font-bold text-pink-600">Key features</h3>
+        <h3 data-i18n="features.title" class="text-xl font-bold text-pink-600">Key features</h3>
         <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div class="p-4 bg-pink-50 rounded-2xl shadow-lg border-2 border-pink-200">
-            <h4 class="font-bold text-pink-500">Automatic conversion</h4>
-            <p class="mt-2 text-sm text-pink-700">Enter original gauge and target yarn — get new stitch & row counts automatically. Convert the pattern you created or copied. Recreate the clothes you have by mesuring them. Reuse the pattern your beloved pattern over and over with different yarns.</p>
+            <h4 data-i18n="features.item_1_title" class="font-bold text-pink-500">Automatic conversion</h4>
+            <p data-i18n="features.item_1_text" class="mt-2 text-sm text-pink-700">Enter original gauge and target yarn — get new stitch & row counts automatically. Convert the pattern you created or copied. Recreate the clothes you have by mesuring them. Reuse the pattern your beloved pattern over and over with different yarns.</p>
           </div>
           <div class="p-4 bg-pink-50 rounded-2xl shadow-lg border-2 border-pink-200">
-            <h4 class="font-bold text-pink-500">Exportable instructions</h4>
-            <p class="mt-2 text-sm text-pink-700">Row-by-row text, printable grid or graphical instructions.</p>
+            <h4 data-i18n="features.item_2_title" class="font-bold text-pink-500">Exportable instructions</h4>
+            <p data-i18n="features.item_2_text" class="mt-2 text-sm text-pink-700">Row-by-row text, printable grid or graphical instructions.</p>
           </div>
           <div class="p-4 bg-pink-50 rounded-2xl shadow-lg border-2 border-pink-200">
-            <h4 class="font-bold text-pink-500">Community sharing</h4>
-            <p class="mt-2 text-sm text-pink-700">Save patterns to share with friends — convert instantly for their yarn.</p>
+            <h4 data-i18n="features.item_3_title" class="font-bold text-pink-500">Community sharing</h4>
+            <p data-i18n="features.item_3_text" class="mt-2 text-sm text-pink-700">Save patterns to share with friends — convert instantly for their yarn.</p>
           </div>
           <div class="p-4 bg-pink-50 rounded-2xl shadow-lg border-2 border-pink-200">
-            <h4 class="font-bold text-pink-500">Intuitive software</h4>
-            <p class="mt-2 text-sm text-pink-700">Visual editor with adjustable control points and grid snap. If you have any trouble, I will help you.</p>
+            <h4 data-i18n="features.item_4_title" class="font-bold text-pink-500">Intuitive software</h4>
+            <p data-i18n="features.item_4_text" class="mt-2 text-sm text-pink-700">Visual editor with adjustable control points and grid snap. If you have any trouble, I will help you.</p>
           </div>
           <div class="p-4 bg-pink-50 rounded-2xl shadow-lg border-2 border-pink-200">
-            <h4 class="font-bold text-pink-500">Large language support</h4>
-            <p class="mt-2 text-sm text-pink-700">Chose among english, french, german, hindi, chinese, portuguese or russian.</p>
+            <h4 data-i18n="features.item_5_title" class="font-bold text-pink-500">Large language support</h4>
+            <p data-i18n="features.item_5_text" class="mt-2 text-sm text-pink-700">Chose among english, french, german, hindi, chinese, portuguese or russian.</p>
           </div>
           <div class="p-4 bg-pink-50 rounded-2xl shadow-lg border-2 border-pink-200">
-            <h4 class="font-bold text-pink-500">Design</h4>
-            <p class="mt-2 text-sm text-pink-700">Create the pattern you want, use the wool you want, or design a motif. You can also copy a piece you love by mesuring the lenghts.</p>
+            <h4 data-i18n="features.item_6_title" class="font-bold text-pink-500">Design</h4>
+            <p data-i18n="features.item_6_text" class="mt-2 text-sm text-pink-700">Create the pattern you want, use the wool you want, or design a motif. You can also copy a piece you love by mesuring the lenghts.</p>
           </div>
         </div>
       </section>
@@ -308,42 +322,42 @@
       <!-- Appliquer la même palette pastel, arrondis et ombres légères à chaque bloc -->
 
       <section id="screenshots" class="py-8">
-        <h3 class="text-xl font-bold text-pink-600">Screenshots</h3>
+        <h3 data-i18n="screenshots.title" class="text-xl font-bold text-pink-600">Screenshots</h3>
         <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
           <figure class="bg-pink-50 p-4 rounded-2xl shadow-lg border-2 border-pink-200">
             <img src="coeur.png" alt="Yarn 2 Yarn modern interface" class="w-full rounded-xl screenshot">
-            <figcaption class="mt-2 text-xs text-pink-400">Modern editor — clean controls, export options.</figcaption>
+            <figcaption data-i18n="screenshots.item_1" class="mt-2 text-xs text-pink-400">Modern editor — clean controls, export options.</figcaption>
           </figure>
           <figure class="bg-pink-50 p-4 rounded-2xl shadow-lg border-2 border-pink-200">
             <img src="3a223e2f-e6a6-42e1-8e61-f96dce5ef1c5.png" alt="Yarn 2 Yarn prototype" class="w-full rounded-xl screenshot">
-            <figcaption class="mt-2 text-xs text-pink-400">Early prototype — the first, buggy version (real progress!).</figcaption>
+            <figcaption data-i18n="screenshots.item_2" class="mt-2 text-xs text-pink-400">Early prototype — the first, buggy version (real progress!).</figcaption>
           </figure>
           <figure class="bg-pink-50 p-4 rounded-2xl shadow-lg border-2 border-pink-200">
             <img src="swap.png" alt="Change the wool" class="w-full rounded-xl screenshot">
-            <figcaption class="mt-2 text-xs text-pink-400">Take the wool you love.</figcaption>
+            <figcaption data-i18n="screenshots.item_3" class="mt-2 text-xs text-pink-400">Take the wool you love.</figcaption>
           </figure>
           <figure class="bg-pink-50 p-4 rounded-2xl shadow-lg border-2 border-pink-200">
             <img src="motif.png" alt="Create motifs" class="w-full rounded-xl screenshot">
-            <figcaption class="mt-2 text-xs text-pink-400">Be creative !</figcaption>
+            <figcaption data-i18n="screenshots.item_4" class="mt-2 text-xs text-pink-400">Be creative !</figcaption>
           </figure>
           <figure class="bg-pink-50 p-4 rounded-2xl shadow-lg border-2 border-pink-200">
             <img src="Instructions.png" alt="Create motifs" class="w-full rounded-xl screenshot">
-            <figcaption class="mt-2 text-xs text-pink-400">Generate clear visual and textual instructions.</figcaption>
+            <figcaption data-i18n="screenshots.item_5" class="mt-2 text-xs text-pink-400">Generate clear visual and textual instructions.</figcaption>
           </figure>
         </div>
       </section>
 
       <section class="py-8">
-        <h3 class="text-lg font-bold text-pink-600">A quick story</h3>
-        <p class="mt-2 text-pink-700">In high school, a student wanted to help his mother follow patterns with whatever wool they had at home. Years later, during engineering school, he built Yarn 2 Yarn — a practical tool that removes fastidious maths so families and communities can keep making, together.</p>
+        <h3 data-i18n="story.title" class="text-lg font-bold text-pink-600">A quick story</h3>
+        <p data-i18n="story.text" class="mt-2 text-pink-700">In high school, a student wanted to help his mother follow patterns with whatever wool they had at home. Years later, during engineering school, he built Yarn 2 Yarn — a practical tool that removes fastidious maths so families and communities can keep making, together.</p>
       </section>
 
       <section class="py-8">
-        <h3 class="text-lg font-bold text-pink-600">Who is this for?</h3>
-        <p class="mt-2 text-pink-700">Hobby knitters, small designers, yarn shops and community knitting groups who want to reuse beloved patterns with new yarns. Tech-savvy makers who appreciate clean exports and sharing.</p>
+        <h3 data-i18n="audience.title" class="text-lg font-bold text-pink-600">Who is this for?</h3>
+        <p data-i18n="audience.text" class="mt-2 text-pink-700">Hobby knitters, small designers, yarn shops and community knitting groups who want to reuse beloved patterns with new yarns. Tech-savvy makers who appreciate clean exports and sharing.</p>
       </section>
       <section id="functionalities" class="py-12">
-        <h3 class="text-xl font-bold text-pink-600 mb-4">
+        <h3 data-i18n="functionalities.title" class="text-xl font-bold text-pink-600 mb-4">
           Functionalities and interface
         </h3>
 
@@ -362,7 +376,7 @@
               class="btn-kawaii inline-flex items-center px-5 py-3
                      bg-pink-500 text-white rounded-2xl shadow-lg
                      hover:bg-pink-600 transition">
-              Download PDF
+              <span data-i18n="functionalities.download_pdf">Download PDF</span>
             </a>
           </div>
           <div class="mt-6 relative w-full rounded-2xl overflow-hidden border border-pink-200 bg-black shadow-lg">
@@ -373,7 +387,7 @@
               playsinline>
               <source src="yypres.mov" type="video/quicktime">
               <source src="yypres.mp4" type="video/mp4">
-              Your browser does not support the video tag.
+              <span data-i18n="functionalities.video_fallback">Your browser does not support the video tag.</span>
             </video>
           </div>
         </div>
@@ -382,16 +396,15 @@
 
       <section id="legal-contact" class="py-8">
         <div class="bg-pink-50 bg-opacity-90 p-6 rounded-3xl shadow-lg border-2 border-pink-200 max-w-6xl mx-auto">
-          <h3 class="text-xl font-bold text-pink-600 mb-4">Legal & Contact</h3>
+          <h3 data-i18n="legal.title" class="text-xl font-bold text-pink-600 mb-4">Legal & Contact</h3>
           <div class="text-sm text-pink-700 space-y-3">
-            <p><strong>Legal :</strong> All content, images, and software on this site are owned by Yarn 2 Yarn. Unauthorized copying or redistribution is prohibited.</p>
-            <p><strong>Privacy :</strong> We respect your privacy. No personal data is shared or sold. We only collect your email if you contact us, so we can answer your questions, and we track affiliation links with lemonsqueezy.</p>
-            <p><strong>Contact :</strong> For support or inquiries, email us at <a href="mailto:yarn2yarn.desiknit@gmail.com" class="underline text-pink-500">yarn2yarn.desiknit@gmail.com</a>.</p>
-            <p><strong>Copyright :</strong> All rights reserved. Some drawings are from <a href="https://www.instagram.com/charlotte_sjostrand?utm_source=qr&igsh=eG01ajMxaTN5YWlh" class="underline text-pink-500">Charlotte Sjöstrand</a>.</p>
-            <div style="display: flex; gap: 40px; align-items: flex-start;">
-
+            <p data-i18n-html="legal.legal"><strong>Legal :</strong> All content, images, and software on this site are owned by Yarn 2 Yarn. Unauthorized copying or redistribution is prohibited.</p>
+            <p data-i18n-html="legal.privacy"><strong>Privacy :</strong> We respect your privacy. No personal data is shared or sold. We only collect your email if you contact us, so we can answer your questions, and we track affiliation links with lemonsqueezy.</p>
+            <p data-i18n-html="legal.contact"><strong>Contact :</strong> For support or inquiries, email us at <a href="mailto:yarn2yarn.desiknit@gmail.com" class="underline text-pink-500">yarn2yarn.desiknit@gmail.com</a>.</p>
+            <p data-i18n-html="legal.copyright"><strong>Copyright :</strong> All rights reserved. Some drawings are from <a href="https://www.instagram.com/charlotte_sjostrand?utm_source=qr&igsh=eG01ajMxaTN5YWlh" class="underline text-pink-500">Charlotte Sjöstrand</a>.</p>
+            <div class="mt-4">
               <!-- FR -->
-              <div style="width: 50%;">
+              <div id="terms-fr" class="terms-panel">
                 <p><strong>Conditions d’utilisation</strong></p>
 
                 <p>
@@ -443,7 +456,7 @@
               </div>
 
               <!-- EN -->
-              <div style="width: 50%;">
+              <div id="terms-en" class="terms-panel">
                 <p><strong>Terms of Service</strong></p>
 
                 <p>
@@ -488,11 +501,10 @@
                 This agreement is governed by French law.
                 </p>
               </div>
-
             </div>
             <!-- Social links -->
             <div class="social-links mt-10 flex flex-col items-center gap-4 text-gray-700">
-              <p class="text-sm font-medium">Follow the project & the creator</p>
+              <p data-i18n="legal.follow" class="text-sm font-medium">Follow the project & the creator</p>
 
               <div class="flex gap-6 text-2xl">
                 <!-- Instagram perso -->
@@ -534,7 +546,7 @@
       </section>
 
       <footer class="py-12 text-center text-sm text-pink-500">
-        <p>© Yarn 2 Yarn — Convert patterns & keep what you love.</p>
+        <p data-i18n="footer.copy">© Yarn 2 Yarn — Convert patterns & keep what you love.</p>
       </footer>
 
     </div>
@@ -543,6 +555,179 @@
   <div id="lightbox" class="hidden fixed inset-0 items-center justify-center bg-pink-100/70 backdrop-blur-sm z-50">
     <img id="lightbox-img" src="" alt="expanded image" class="rounded-xl shadow-lg" style="max-width:80%; height:auto">
   </div>
+  <script>
+    (function() {
+      var translations = {
+        en: {
+          "page.title": "Yarn 2 Yarn — Knit pattern converter & generator",
+          "nav.features": "Features",
+          "nav.screenshots": "Screenshots",
+          "nav.calculator": "Skein Calculator",
+          "nav.free_patterns": "Free Patterns",
+          "nav.buy": "Buy",
+          "nav.language": "Language",
+          "hero.tagline": "Convert • Adapt • Knit",
+          "hero.title": "Make any pattern fit any yarn — instantly",
+          "hero.description": "Yarn 2 Yarn helps convert written or graphical knitting patterns to match the yarn and gauge you have on hand. Combine the pattern and the yarn you love without being stuck to one setup. Generate clear row-by-row instructions, stitch counts, and a printable grid.",
+          "hero.bullet_1": "<strong>Adapt any pattern</strong> — swap yarns instantly without math.",
+          "hero.bullet_2": "<strong>Share & collaborate</strong> — save, export and send a friend-ready version.",
+          "hero.bullet_3": "<strong>Practical outputs</strong> — printable grid, row instructions, and gauge settings.",
+          "hero.buy_cta": "Buy once forever, two computers, total: €30.",
+          "hero.download_windows": "Download for Windows (.exe)",
+          "hero.download_mac": "Download for Mac (Apple Silicon)",
+          "hero.see_screenshots": "See screenshots",
+          "hero.one_time": "One-time purchase. One for you, one for a friend, and share patterns.",
+          "hero.why_title": "Why it matters",
+          "hero.why_text": "No more guessing which yarn to buy or wrestling with math. Keep the design you love and use the yarn you already own.",
+          "hero.figure_caption": "Clean editor: draw or import a pattern, set gauge, export instructions.",
+          "features.title": "Key features",
+          "features.item_1_title": "Automatic conversion",
+          "features.item_1_text": "Enter original gauge and target yarn to get new stitch and row counts automatically.",
+          "features.item_2_title": "Exportable instructions",
+          "features.item_2_text": "Row-by-row text, printable grid, or graphical instructions.",
+          "features.item_3_title": "Community sharing",
+          "features.item_3_text": "Save patterns to share with friends and convert instantly for their yarn.",
+          "features.item_4_title": "Intuitive software",
+          "features.item_4_text": "Visual editor with adjustable control points and grid snap.",
+          "features.item_5_title": "Language support",
+          "features.item_5_text": "Choose among English, French, German, Hindi, Chinese, Portuguese, or Russian.",
+          "features.item_6_title": "Design freedom",
+          "features.item_6_text": "Create the pattern you want, use the wool you want, or design a motif.",
+          "screenshots.title": "Screenshots",
+          "screenshots.item_1": "Modern editor — clean controls, export options.",
+          "screenshots.item_2": "Early prototype — the first buggy version.",
+          "screenshots.item_3": "Use the wool you love.",
+          "screenshots.item_4": "Be creative.",
+          "screenshots.item_5": "Generate clear visual and textual instructions.",
+          "story.title": "A quick story",
+          "story.text": "In high school, a student wanted to help his mother follow patterns with whatever wool they had at home. Years later, during engineering school, he built Yarn 2 Yarn.",
+          "audience.title": "Who is this for?",
+          "audience.text": "Hobby knitters, small designers, yarn shops, and community knitting groups who want to reuse patterns with new yarns.",
+          "functionalities.title": "Functionalities and interface",
+          "functionalities.download_pdf": "Download PDF",
+          "functionalities.video_fallback": "Your browser does not support the video tag.",
+          "legal.title": "Legal & Contact",
+          "legal.legal": "<strong>Legal:</strong> All content, images, and software on this site are owned by Yarn 2 Yarn. Unauthorized copying or redistribution is prohibited.",
+          "legal.privacy": "<strong>Privacy:</strong> We respect your privacy. No personal data is shared or sold. We only collect your email if you contact us.",
+          "legal.contact": "<strong>Contact:</strong> For support or inquiries, email us at <a href=\"mailto:yarn2yarn.desiknit@gmail.com\" class=\"underline text-pink-500\">yarn2yarn.desiknit@gmail.com</a>.",
+          "legal.copyright": "<strong>Copyright:</strong> All rights reserved. Some drawings are from <a href=\"https://www.instagram.com/charlotte_sjostrand?utm_source=qr&igsh=eG01ajMxaTN5YWlh\" class=\"underline text-pink-500\">Charlotte Sjöstrand</a>.",
+          "legal.follow": "Follow the project & the creator",
+          "footer.copy": "© Yarn 2 Yarn — Convert patterns & keep what you love.",
+          "preview.unavailable": "Preview not available on this device."
+        },
+        fr: {
+          "page.title": "Yarn 2 Yarn — Convertisseur et générateur de patrons tricot",
+          "nav.features": "Fonctionnalités",
+          "nav.screenshots": "Captures",
+          "nav.calculator": "Calculateur de pelotes",
+          "nav.free_patterns": "Patrons gratuits",
+          "nav.buy": "Acheter",
+          "nav.language": "Langue",
+          "hero.tagline": "Convertir • Adapter • Tricoter",
+          "hero.title": "Adaptez n'importe quel patron à n'importe quelle laine",
+          "hero.description": "Yarn 2 Yarn convertit des patrons de tricot écrits ou graphiques selon la laine et l'échantillon que vous avez. Combinez le patron que vous aimez avec la laine que vous avez déjà, puis générez des instructions claires rang par rang.",
+          "hero.bullet_1": "<strong>Adaptez n'importe quel patron</strong> — changez de laine sans calcul.",
+          "hero.bullet_2": "<strong>Partagez facilement</strong> — sauvegardez, exportez et envoyez une version prête à tricoter.",
+          "hero.bullet_3": "<strong>Sorties pratiques</strong> — grille imprimable, instructions rang par rang et réglages d'échantillon.",
+          "hero.buy_cta": "Achetez une fois à vie, deux ordinateurs, total : 30 €.",
+          "hero.download_windows": "Télécharger pour Windows (.exe)",
+          "hero.download_mac": "Télécharger pour Mac (Apple Silicon)",
+          "hero.see_screenshots": "Voir les captures",
+          "hero.one_time": "Paiement unique. Une licence pour vous, une pour un proche, et partage de patrons.",
+          "hero.why_title": "Pourquoi c'est utile",
+          "hero.why_text": "Plus besoin d'acheter la mauvaise laine ni de refaire des calculs. Gardez le design que vous aimez et utilisez la laine que vous avez déjà.",
+          "hero.figure_caption": "Éditeur clair : dessinez ou importez un patron, réglez l'échantillon, exportez les instructions.",
+          "features.title": "Fonctionnalités clés",
+          "features.item_1_title": "Conversion automatique",
+          "features.item_1_text": "Entrez l'échantillon d'origine et la laine cible pour obtenir automatiquement les nouveaux comptes de mailles et de rangs.",
+          "features.item_2_title": "Instructions exportables",
+          "features.item_2_text": "Texte rang par rang, grille imprimable ou instructions graphiques.",
+          "features.item_3_title": "Partage communautaire",
+          "features.item_3_text": "Sauvegardez vos patrons pour les partager et les convertir selon la laine de chacun.",
+          "features.item_4_title": "Logiciel intuitif",
+          "features.item_4_text": "Éditeur visuel avec points de contrôle ajustables et grille magnétique.",
+          "features.item_5_title": "Support des langues",
+          "features.item_5_text": "Choisissez parmi anglais, français, allemand, hindi, chinois, portugais ou russe.",
+          "features.item_6_title": "Liberté de création",
+          "features.item_6_text": "Créez le patron que vous voulez, utilisez la laine que vous voulez, ou dessinez un motif.",
+          "screenshots.title": "Captures",
+          "screenshots.item_1": "Éditeur moderne — commandes claires, options d'export.",
+          "screenshots.item_2": "Premier prototype — la toute première version.",
+          "screenshots.item_3": "Utilisez la laine que vous aimez.",
+          "screenshots.item_4": "Laissez parler votre créativité.",
+          "screenshots.item_5": "Générez des instructions visuelles et textuelles claires.",
+          "story.title": "Petite histoire",
+          "story.text": "Au lycée, un élève voulait aider sa mère à suivre des patrons avec la laine disponible à la maison. Des années plus tard, il a construit Yarn 2 Yarn en école d'ingénieur.",
+          "audience.title": "Pour qui ?",
+          "audience.text": "Pour les tricoteurs loisirs, petits créateurs, merceries et groupes de tricot qui veulent réutiliser leurs patrons avec d'autres laines.",
+          "functionalities.title": "Fonctionnalités et interface",
+          "functionalities.download_pdf": "Télécharger le PDF",
+          "functionalities.video_fallback": "Votre navigateur ne supporte pas la balise vidéo.",
+          "legal.title": "Mentions légales & contact",
+          "legal.legal": "<strong>Légal :</strong> Tout le contenu, les images et le logiciel de ce site appartiennent à Yarn 2 Yarn. Toute copie ou redistribution non autorisée est interdite.",
+          "legal.privacy": "<strong>Confidentialité :</strong> Nous respectons votre vie privée. Aucune donnée personnelle n'est vendue ni partagée. Nous utilisons votre email uniquement si vous nous contactez.",
+          "legal.contact": "<strong>Contact :</strong> Pour toute question ou support, écrivez à <a href=\"mailto:yarn2yarn.desiknit@gmail.com\" class=\"underline text-pink-500\">yarn2yarn.desiknit@gmail.com</a>.",
+          "legal.copyright": "<strong>Droits d'auteur :</strong> Tous droits réservés. Certains dessins viennent de <a href=\"https://www.instagram.com/charlotte_sjostrand?utm_source=qr&igsh=eG01ajMxaTN5YWlh\" class=\"underline text-pink-500\">Charlotte Sjöstrand</a>.",
+          "legal.follow": "Suivre le projet et le créateur",
+          "footer.copy": "© Yarn 2 Yarn — Convertissez vos patrons et gardez ce que vous aimez.",
+          "preview.unavailable": "Aperçu indisponible sur cet appareil."
+        }
+      };
+
+      var currentLang = ((navigator.language || "").toLowerCase().indexOf("fr") === 0 ? "fr" : "en");
+
+      function t(key) {
+        return (translations[currentLang] && translations[currentLang][key]) || (translations.en && translations.en[key]) || key;
+      }
+
+      function apply() {
+        document.documentElement.lang = currentLang;
+        document.title = t("page.title");
+        var i18nNodes = document.querySelectorAll("[data-i18n]");
+        i18nNodes.forEach(function(node) {
+          node.textContent = t(node.getAttribute("data-i18n"));
+        });
+        var i18nHtmlNodes = document.querySelectorAll("[data-i18n-html]");
+        i18nHtmlNodes.forEach(function(node) {
+          node.innerHTML = t(node.getAttribute("data-i18n-html"));
+        });
+        var select = document.getElementById("lang-select");
+        if (select) select.value = currentLang;
+
+        var termsFr = document.getElementById("terms-fr");
+        var termsEn = document.getElementById("terms-en");
+        if (termsFr && termsEn) {
+          if (currentLang === "fr") {
+            termsFr.style.display = "block";
+            termsEn.style.display = "none";
+          } else {
+            termsFr.style.display = "none";
+            termsEn.style.display = "block";
+          }
+        }
+      }
+
+      function setLang(lang) {
+        currentLang = lang === "fr" ? "fr" : "en";
+        apply();
+      }
+
+      var langSelect = document.getElementById("lang-select");
+      if (langSelect) {
+        langSelect.addEventListener("change", function() {
+          setLang(langSelect.value);
+        });
+      }
+
+      apply();
+      window.y2yI18n = {
+        t: t,
+        getLang: function() { return currentLang; },
+        setLang: setLang,
+        apply: apply
+      };
+    })();
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <script>
     (function(){
@@ -572,7 +757,8 @@
           })(i);
         }
       }).catch(function(){
-        canvasWrap.innerHTML = '<p class="text-sm text-pink-600 p-4">Preview not available on this device.</p>';
+        var t = window.y2yI18n && window.y2yI18n.t ? window.y2yI18n.t : function(key){ return key; };
+        canvasWrap.innerHTML = '<p class="text-sm text-pink-600 p-4">' + t('preview.unavailable') + '</p>';
       });
     })();
   </script>
