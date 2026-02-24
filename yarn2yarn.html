@@ -214,7 +214,17 @@
     .terms-panel {
       display: none;
     }
-
+    /* Desktop + mobile: la zone PDF doit scroller */
+    .pdf-preview {
+      height: 70vh;          /* tu utilises déjà 70vh inline, on le fixe ici */
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    /* IMPORTANT: le wrapper canvas doit prendre la hauteur */
+    #pdf-canvas {
+      height: 100%;
+    }
   </style>
 </head>
 <body class="bg-gradient-to-br from-yellow-100 to-blue-200 text-pink-900 leading-relaxed">
